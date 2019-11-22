@@ -8,10 +8,11 @@ const client = new Discord.Client();
 const {prefix, token} = require('./crayons.json');
 const static_embed = require("./static_embed.js");
 const static_functions = require("./static_functions.js");
+const bot_funcitions = require("./bot_functions.js");
 const verification = '604367758767161374';
 
 const actions = {
-    "accept": acceptTrialMod
+    "accept": bot_funcitions.acceptTrialMod
 };
 
 client.once('ready', () => {
