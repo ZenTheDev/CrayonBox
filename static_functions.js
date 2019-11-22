@@ -3,24 +3,23 @@
  * All rights lies to "VukAnd12#4407" and "Gravity Assist#0852"
  */
 
-export default class static_functions{
 
-    static has_user_role(user, role_name) {
+    function has_user_role(user, role_name) {
         return user.roles.find(r => r.name === role_name);
     }
 
-    static get_role(guild, role_name) {
+    function get_role(guild, role_name) {
         return guild.roles.find(r => r.name === role_name);
     }
 
-    async temp_message(content, channel, lifetime) {
+    async function temp_message(content, channel, lifetime) {
         channel.send(content).then(msg => {
             msg.delete(lifetime)
         });
         return 9;
     }
 
-    static ContainsNoGuildDiscordInvite(content, guild){
+    function ContainsNoGuildDiscordInvite(content, guild){
         let search_text = content.toLowerCase();
         let contains_no_guild_invite = true;
         let n = 0;
@@ -59,5 +58,10 @@ export default class static_functions{
 
         return contains_no_guild_invite;
     }
-}
+
+    module.exports = {
+        has_user_role,
+        get_role,
+        ContainsNoGuildDiscordInvite
+      };
 

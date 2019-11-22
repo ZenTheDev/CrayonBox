@@ -3,12 +3,11 @@
  * All rights lies to "VukAnd12#4407" and "Gravity Assist#0852"
  */
 
-import static_functions from "static_functions.js";
-import static_embed from "static_embed.js";
-
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const {prefix, token} = require('./crayons.json');
+const static_embed = require("./static_embed.js");
+const static_functions = require("./static_functions.js");
 const verification = '604367758767161374';
 
 client.once('ready', () => {
