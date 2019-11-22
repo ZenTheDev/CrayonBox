@@ -5,15 +5,13 @@
 
 const Discord = require('discord.js');
 
+    const TrialModColor = "#c8d5ee";
+    const wrongVerifyColor = "#ff0000";
+    const NotAllowedCharacterColor = "#ff0000";
+    const NoDiscordInviteColor = "#ff0000";
+    const WelcomeMessageColor = "#00ff00";
 
-export default class static_embed {
-    static TrialModColor = "#c8d5ee";
-    static wrongVerifyColor = "#ff0000";
-    static NotAllowedCharacterColor = "#ff0000";
-    static NoDiscordInviteColor = "#ff0000";
-    static WelcomeMessageColor = "#00ff00";
-
-    static TrialModAccept(accepter, trialmod, guild) {
+    function TrialModAccept(accepter, trialmod, guild) {
         return new Discord.RichEmbed()
             .setColor(this.TrialModColor)
             .setAuthor(accepter.username, accepter.avatarURL)
@@ -22,14 +20,14 @@ export default class static_embed {
             .setFooter(`For ${trialmod.user.username}, made by VukAnd12 and Gravity Assist`);
     }
 
-    static TrialModAddWarn(trialmod) {
+    function TrialModAddWarn(trialmod) {
         return new Discord.RichEmbed() // Creates the embed thats returned to the person warning if its sent.
             .setColor(this.TrialModColor)
             .setTitle(`${trialmod.user.tag} has been given Trial Mod!`)
             .setTimestamp();
     }
 
-    static WrongVerifyMessage(member) {
+    function WrongVerifyMessage(member) {
         return new Discord.RichEmbed()
             .setColor(this.wrongVerifyColor)
             .setTitle('You do not have permission to access discord://AAA')
@@ -40,7 +38,7 @@ export default class static_embed {
             .setImage("https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/facebook/11/cross-mark_274c.png");
     }
 
-    static NotAllowedCharacter(member, character) {
+    function NotAllowedCharacter(member, character) {
         return new Discord.RichEmbed()
             .setColor(this.NotAllowedCharacterColor)
             .setTitle('Really funny.')
@@ -50,7 +48,7 @@ export default class static_embed {
             .setFooter(`For ${member.user.username}`);
     }
 
-    static NoDiscordInvite(member) {
+    function NoDiscordInvite(member) {
         return new Discord.RichEmbed()
             .setColor(this.NoDiscordInviteColor)
             .setTitle('Rule 6!')
@@ -60,7 +58,7 @@ export default class static_embed {
             .setFooter(`For ${member.user.username}`);
     }
 
-    static WelcomeMessage() {
+    function WelcomeMessage() {
         return new Discord.RichEmbed()
             .setColor(this.WelcomeMessageColor)
             .setTitle('Welcome to the server!')
@@ -69,5 +67,12 @@ export default class static_embed {
             .setTimestamp()
             .setFooter(`Made by VukAnd12`);
     }
-}
 
+    module.exports = {
+        NoDiscordInvite,
+        WelcomeMessage,
+        NotAllowedCharacter,
+        WrongVerifyMessage,
+        TrialModAddWarn,
+        TrialModAccept
+      };
