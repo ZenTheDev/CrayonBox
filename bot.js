@@ -20,9 +20,10 @@ client.once('ready', () => {
 });
 
 client.on('message', (message) => {
+    const guild = message.guild;
+    const mentions = message.mentions;
+    const member = message.member;
     const channel = message.channel;
-
-    const content = message.content;
 
 
     if (content.toLowerCase() === "creeper") {
