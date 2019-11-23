@@ -14,7 +14,7 @@ function get_role(guild, role_name) {
 
 async function temp_message(content, channel, lifetime) {
     channel.send(content).then(msg => {
-        msg.delete(lifetime)
+        msg.delete(lifetime);
     });
     return 9;
 }

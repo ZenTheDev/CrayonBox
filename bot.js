@@ -47,20 +47,19 @@ client.on('message', (message) => {
 
 
             // SPECIAL COMMANDS
-
-            if (content === "<@&641280891645067305>, <@!596351092602699787> is offline.") {
+            if (channel.id === "647758971825946634") {
+                if (content.length !== 1) {
+                    message.delete();
+                }
+            } else if (content === "<@&641280891645067305>, <@!596351092602699787> is offline.") {
                 channel.send("<@!282866197727543297>");
             } else if (content.toLowerCase() === "creeper") {
                 if (channel.id !== "561997180638986242") {
                     message.reply("this again? Just go to <#561997180638986242>...");
                 }
-            }
-
-            if (content.toLowerCase().includes("this is so sad")) {
+            } else if (content.toLowerCase().includes("this is so sad")) {
                 channel.send("Alexa, play the funny song.");
-            }
-
-            if (content.toLowerCase().includes("do i get roles")) {
+            } else if (content.toLowerCase().includes("do i get roles")) {
                 message.reply("you may be looking for <#581355956613414912>! There's some role menus you can use over there.\nAlso see `.xprews`.");
             }
 
@@ -88,14 +87,14 @@ client.on('message', (message) => {
                     static_functions.temp_message('Hi there! :wave:\n`pls penis` appears to be disabled in this channel.', channel, 5000);
                 }
 
-            }else if (content === "--userphone" || content === "—userphone") {
+            } else if (content === "--userphone" || content === "—userphone") {
                 if (channel.id === "571040720228712490") {
                     message.delete();
                     static_functions.temp_message('Hi there! :wave:\n`--userphone` appears to be disabled in this channel.', channel, 5000);
                 }
             } else if (content === "wynn!wynntils") {
                 // WYNNCRAFT
-                channel.send("<https://forums.wynncraft.com/threads/wynntils-make-your-wynncraft-experience-even-better-1-12.235908/>\n(1.12.*)")
+                channel.send("<https://forums.wynncraft.com/threads/wynntils-make-your-wynncraft-experience-even-better-1-12.235908/>\n(1.12.*)");
             } else if (channel.id === "638647989937897472") {
                 if (member.id !== "282866197727543297") {
                     if (content === "aAAaaaaA" || content === "a­A­A­aa­a­a­A") {
