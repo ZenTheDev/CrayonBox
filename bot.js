@@ -24,6 +24,7 @@ client.on('message', (message) => {
     const mentions = message.mentions;
     const member = message.member;
     const channel = message.channel;
+    const content = message.content;
 
 
     if (content.toLowerCase() === "creeper") {
