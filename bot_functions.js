@@ -13,7 +13,6 @@ module.exports = {
     acceptTrialMod
 };
 
-
 async function acceptTrialMod(message) {
     const guild = message.guild;
     const mentions = message.mentions;

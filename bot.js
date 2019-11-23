@@ -11,6 +11,17 @@ const static_functions = require("./static_functions.js");
 const bot_funcitions = require("./bot_functions.js");
 const verification = '604367758767161374';
 
+
+const data = {
+    "542073176729976842": {
+        "actions": {
+            "accpet": bot_funcitions.acceptTrialMod
+        },
+        "prefix": "c!",
+        "verification": "604367758767161374"
+    }
+};
+
 const actions = {
     "accept": bot_funcitions.acceptTrialMod
 };
@@ -21,7 +32,6 @@ client.once('ready', () => {
 
 client.on('message', (message) => {
     const guild = message.guild;
-    const mentions = message.mentions;
     const member = message.member;
     const channel = message.channel;
     const content = message.content;
@@ -44,7 +54,6 @@ client.on('message', (message) => {
                 message.channel.send("Unknow command");
             }
         } else {
-
 
             // SPECIAL COMMANDS
             if (channel.id === "647758971825946634") {
@@ -79,7 +88,6 @@ client.on('message', (message) => {
                     static_functions.temp_message(static_embed.NotAllowedCharacter(member, "B"), channel, 5000);
                 }
             } else if (content.toLowerCase().startsWith("pls penis")) {
-                console.log("Saw pls penis");
                 if (channel.id !== "598662819323314196" && channel.type !== "dm") {
                     console.log("pls penis will not be removed");
                 } else {
