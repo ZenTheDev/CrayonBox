@@ -73,9 +73,12 @@ client.on('message', (message) => {
                         static_functions.temp_message(static_embed.NoDiscordInvite(member), channel, 5000);
                     }
                 }
-            } else if (content.toLowerCase().includes("b") && channel.id === "560892008840036372") {
-                message.delete();
-                static_functions.temp_message(static_embed.NotAllowedCharacter(member, "B"), channel, 5000);
+            } else if (channel.id === "560892008840036372") {
+                const exclude = content.replace(":crayonboxa:", ""); // Replace crayonboxa emoji
+                if (exclude.toLowerCase().contains("b")) {
+                    message.delete();
+                    static_functions.temp_message(static_embed.NotAllowedCharacter(member, "B"), channel, 5000);
+                }
             } else if (content.toLowerCase().startsWith("pls penis")) {
                 console.log("Saw pls penis");
                 if (channel.id !== "598662819323314196" && channel.type !== "dm") {
