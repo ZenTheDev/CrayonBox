@@ -83,7 +83,7 @@ client.on('message', (message) => {
                 }
             } else if (channel.id === "560892008840036372") {
                 const exclude = content.replace(":crayonboxa:", ""); // Replace crayonboxa emoji
-                if (exclude.toLowerCase().includes("b") || exclude.toLowerCase().includes("Ь")) {
+                if (exclude.toLowerCase().includes("b")) {
                     message.delete();
                     static_functions.temp_message(static_embed.NotAllowedCharacter(member, "B"), channel, 5000);
                 }
