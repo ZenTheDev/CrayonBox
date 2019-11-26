@@ -4,38 +4,64 @@
  */
 
 const Discord = require('discord.js');
-const client = new Discord.Client();
-const {prefix, token} = require('./crayons.json');
+const fs = require('fs');
+
+const {tet, token} = require('./crayons.json');
+
 const static_embed = require("./static_embed.js");
 const static_functions = require("./static_functions.js");
 const bot_funcitions = require("./bot_functions.js");
+const bot_modules = require("./module_functions.js");
+
 const verification = '604367758767161374';
 
+const client = new Discord.Client();
 
-const data = {
-    "542073176729976842": {
-        "actions": {
-            "accpet": bot_funcitions.acceptTrialMod
-        },
-        "prefix": "c!",
-        "verification": "604367758767161374"
-    }
+const jsondata = JSON.parse(fs.readFileSync('./data.json', 'utf8'));
+
+
+const jsonactions = {
+    1: bot_funcitions.acceptTrialMod,
+    2: bot_funcitions.test
 };
+
 
 const actions = {
-    "accept": bot_funcitions.acceptTrialMod
+    "accept": bot_funcitions.acceptTrialMod,
+    "test": bot_funcitions.test
 };
+
+const modules = {
+    1: bot_modules.one_letter,
+    2: bot_modules.verification
+};
+
 
 client.once('ready', () => {
     console.log('crayonbox-assist has started up successfully.');
 });
 
+
 client.on('message', (message) => {
+    //process.send("help" );
+    let old_data = JSON.stringify(jsondata, null,2);
+    const guildID = message.guild.id.toString();
+    const channelID = message.channel.id.toString();
+
     const guild = message.guild;
     const member = message.member;
     const channel = message.channel;
     const content = message.content;
 
+    if (! jsondata.hasOwnProperty(guildID)) {
+
+        jsondata[guildID] = {};
+        jsondata[guildID]["prefix"] = jsondata.baseprefix;
+        jsondata[guildID]["specialchannels"] = []
+
+    }
+
+    const prefix = jsondata[guildID]["prefix"];
 
     if (content.toLowerCase() === "creeper") {
         if (channel.id !== "561997180638986242") {
@@ -44,17 +70,22 @@ client.on('message', (message) => {
     }
 
     if (!message.author.bot) {
+
+
         if (message.content.toLowerCase().startsWith(prefix)) {
             const args = message.content.slice(prefix.length).split(/ +/);
             const command = args.shift().toLowerCase();
 
             try {
-                actions[command](message);
+                jsonactions[jsondata[guildID]["commands"][command].toString()](message);
             } catch (e) {
                 message.channel.send("Unknow command");
             }
         } else {
 
+            if (jsondata[guildID]["specialchannels"].includes(channel.id.toString())){
+                modules[jsondata[guildID][channelID]["use"]](message, jsondata, client);
+            }
             // SPECIAL COMMANDS
             if (channel.id === "647758971825946634") {
                 if (content.length !== 1) {
@@ -118,7 +149,12 @@ client.on('message', (message) => {
             }
         }
     }
+    if (old_data !== JSON.stringify(jsondata, null,2)){
+        fs.writeFileSync("./data.json", JSON.stringify(jsondata, null,2));
+    }
 });
+
+
 
 client.on('guildMemberAdd', (guildMember) => {
     guildMember.addRole(verification, "Rules detection");
