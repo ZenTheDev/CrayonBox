@@ -69,7 +69,7 @@ client.on('message', (message) => {
         } else {
 
             // solve everything over JSON Configuration
-            if (jsonData[guildID]["specialhannels"].includes(channelID)) {
+            if (jsonData[guildID]["specialchannels"].includes(channelID)) {
                 modules[jsonData[guildID][channelID]["use"].toString()](message, jsonData, client);
             }
 
