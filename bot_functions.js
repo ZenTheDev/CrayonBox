@@ -9,6 +9,7 @@ const client = new Discord.Client();
 const static_embed = require("./static_embed.js");
 const static_functions = require("./static_functions.js");
 
+
 module.exports = {
     acceptTrialMod,
     test
@@ -16,13 +17,11 @@ module.exports = {
 
 
 async function test(message) {
-    const guild = message.guild;
-    const mentions = message.mentions;
-    const member = message.member;
     const channel = message.channel;
 
     channel.send("Don't even try you actual fucking shit.");
 }
+
 
 async function acceptTrialMod(message) {
     const guild = message.guild;

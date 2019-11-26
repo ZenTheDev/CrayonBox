@@ -6,46 +6,39 @@
 const Discord = require('discord.js');
 const fs = require('fs');
 
-const {tet, token} = require('./crayons.json');
+const {token} = require('./crayons.json');
 
 const static_embed = require("./static_embed.js");
 const static_functions = require("./static_functions.js");
-const bot_funcitions = require("./bot_functions.js");
+const bot_functions = require("./bot_functions.js");
 const bot_modules = require("./module_functions.js");
 
 const verification = '604367758767161374';
 
 const client = new Discord.Client();
 
-const jsondata = JSON.parse(fs.readFileSync('./data.json', 'utf8'));
+const jsonData = JSON.parse(fs.readFileSync('./data.json', 'utf8'));
 
 
-const jsonactions = {
-    1: bot_funcitions.acceptTrialMod,
-    2: bot_funcitions.test
+const jsonActions = {
+    0: bot_functions.test,
+    1: bot_functions.acceptTrialMod
 };
-
-
-const actions = {
-    "accept": bot_funcitions.acceptTrialMod,
-    "test": bot_funcitions.test
-};
-
 const modules = {
     1: bot_modules.one_letter,
     2: bot_modules.verification,
-    3: bot_modules.banned_characters
+    3: bot_modules.banned_characters,
 };
+
 
 
 client.once('ready', () => {
     console.log('crayonbox-assist has started up successfully.');
 });
 
-
 client.on('message', (message) => {
-    //process.send("help" );
-    let old_data = JSON.stringify(jsondata, null,2);
+
+    let old_data = JSON.stringify(jsonData, null, 2);
     const guildID = message.guild.id.toString();
     const channelID = message.channel.id.toString();
 
@@ -54,15 +47,7 @@ client.on('message', (message) => {
     const channel = message.channel;
     const content = message.content;
 
-    if (! jsondata.hasOwnProperty(guildID)) {
-
-        jsondata[guildID] = {};
-        jsondata[guildID]["prefix"] = jsondata.baseprefix;
-        jsondata[guildID]["specialchannels"] = []
-
-    }
-
-    const prefix = jsondata[guildID]["prefix"];
+    const prefix = jsonData[guildID]["prefix"];
 
     if (content.toLowerCase() === "creeper") {
         if (channel.id !== "561997180638986242") {
@@ -71,22 +56,24 @@ client.on('message', (message) => {
     }
 
     if (!message.author.bot) {
-
-
         if (message.content.toLowerCase().startsWith(prefix)) {
+
             const args = message.content.slice(prefix.length).split(/ +/);
             const command = args.shift().toLowerCase();
 
-            try {
-                jsonactions[jsondata[guildID]["commands"][command].toString()](message);
-            } catch (e) {
-                message.channel.send("Unknow command");
+            if (jsonData[guildID]["commands"].hasOwnProperty(command)) {
+                jsonActions[jsonData[guildID]["commands"][command]["action"].toString()](message);
+            } else {
+                channel.send("Unknow command");
             }
         } else {
 
-            if (jsondata[guildID]["specialchannels"].includes(channel.id.toString())){
-                modules[jsondata[guildID][channelID]["use"]](message, jsondata, client);
+            // solve everything over JSON Configuration
+            if (jsonData[guildID]["specialhannels"].includes(channelID)) {
+                modules[jsonData[guildID][channelID]["use"].toString()](message, jsonData, client);
             }
+
+            // not implemented into JSON configuration
             // SPECIAL COMMANDS
             if (content === "<@&641280891645067305>, <@!596351092602699787> is offline.") {
                 channel.send("<@!282866197727543297>");
@@ -128,12 +115,10 @@ client.on('message', (message) => {
             }
         }
     }
-    if (old_data !== JSON.stringify(jsondata, null,2)){
-        fs.writeFileSync("./data.json", JSON.stringify(jsondata, null,2));
+    if (old_data !== JSON.stringify(jsonData, null, 2)) {
+        fs.writeFileSync("./data.json", JSON.stringify(jsonData, null, 2));
     }
 });
-
-
 
 client.on('guildMemberAdd', (guildMember) => {
     guildMember.addRole(verification, "Rules detection");

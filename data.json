@@ -2,26 +2,39 @@
   "baseprefix": "c!",
   "542073176729976842": {
     "prefix": "c!",
-    "specialchannels": ["647758971825946634", "638647989937897472", "560892008840036372"],
+    "specialchannels": [
+      "647758971825946634",
+      "638647989937897472",
+      "560892008840036372"
+    ],
     "commands": {
-      "accept": 1,
-      "test": 2
+      "accept": {
+        "action": 1,
+        "ignoredchannels": []
+      },
+      "test": {
+        "action": 0,
+        "ignoredchannels": []
+      }
     },
     "638647989937897472": {
       "use": 2,
-      "nodelete": ["282866197727543297"],
+      "nodelete": [
+        "282866197727543297"
+      ],
       "ignore": [],
       "forbidden": []
     },
     "verification": {
-      "638647989937897472": ["aAAaaaaA", "a­A­A­aa­a­a­A"],
+      "638647989937897472": [
+        "aAAaaaaA",
+        "a­A­A­aa­a­a­A"
+      ],
       "role": {
         "638647989937897472": "604367758767161374"
       }
     },
-
     "verificationlog": "638691842795503626",
-
     "647758971825946634": {
       "use": 1,
       "nodelete": [],
@@ -31,34 +44,50 @@
     "560892008840036372": {
       "use": 3,
       "nodelete": [],
-      "ignore": [":crayonboxa:"],
-      "forbidden": ["b", "ь"]
+      "ignore": [
+        ":crayonboxa:"
+      ],
+      "forbidden": [
+        "b",
+        "ь"
+      ]
     }
   },
   "386152123760640030": {
-    "specialchannels": ["647384954635943936"],
+    "specialchannels": [
+      "647384954635943936"
+    ],
     "prefix": "cc!",
-
     "verificationlog": "647384954635943936",
     "verification": {
-      "647384954635943936": ["aAAaaaaA", "a­A­A­aa­a­a­A"],
+      "647384954635943936": [
+        "aAAaaaaA",
+        "a­A­A­aa­a­a­A"
+      ],
       "role": {
         "647384954635943936": "507143755015389184"
       }
     },
-
     "commands": {
-      "accept": 1,
-      "test": 2
+      "accept": {
+        "action": 1,
+        "ignoredchannels": []
+      },
+      "test": {
+        "action": 0,
+        "ignoredchannels": []
+      }
     },
-
-
-
     "647384954635943936": {
       "use": 3,
       "nodelete": "260038096681304074",
-      "ignore": [":crayonboxa:"],
-      "forbidden": ["b", "ь"]
+      "ignore": [
+        ":crayonboxa:"
+      ],
+      "forbidden": [
+        "b",
+        "ь"
+      ]
     }
   }
 }
