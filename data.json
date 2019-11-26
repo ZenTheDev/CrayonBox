@@ -2,41 +2,63 @@
   "baseprefix": "c!",
   "542073176729976842": {
     "prefix": "c!",
-    "specialchannels": ["647758971825946634"],
+    "specialchannels": ["647758971825946634", "638647989937897472", "560892008840036372"],
     "commands": {
       "accept": 1,
       "test": 2
     },
     "638647989937897472": {
       "use": 2,
-      "nodelete": ["282866197727543297"]
+      "nodelete": ["282866197727543297"],
+      "ignore": [],
+      "forbidden": []
     },
     "verification": {
-      "638647989937897472": ["aAAaaaaA", "a­A­A­aa­a­a­A"]
+      "638647989937897472": ["aAAaaaaA", "a­A­A­aa­a­a­A"],
+      "role": {
+        "638647989937897472": "604367758767161374"
+      }
     },
+
     "verificationlog": "638691842795503626",
+
     "647758971825946634": {
-      "use": 1
+      "use": 1,
+      "nodelete": [],
+      "ignore": [],
+      "forbidden": []
+    },
+    "560892008840036372": {
+      "use": 3,
+      "nodelete": [],
+      "ignore": [":crayonboxa:"],
+      "forbidden": ["b", "ь"]
     }
   },
   "386152123760640030": {
+    "specialchannels": ["647384954635943936"],
+    "prefix": "cc!",
+
+    "verificationlog": "647384954635943936",
     "verification": {
       "647384954635943936": ["aAAaaaaA", "a­A­A­aa­a­a­A"],
       "role": {
         "647384954635943936": "507143755015389184"
       }
     },
-    "prefix": "cc!",
-    "specialchannels": ["647384954635943936"],
+
     "commands": {
       "accept": 1,
       "test": 2
     },
 
-    "verificationlog": "647384954635943936",
+
+
     "647384954635943936": {
-      "use": 2,
-      "nodelete": "260038096681304074"
+      "use": 3,
+      "nodelete": "260038096681304074",
+      "ignore": [":crayonboxa:"],
+      "forbidden": ["b", "ь"]
     }
   }
 }

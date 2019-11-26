@@ -33,7 +33,8 @@ const actions = {
 
 const modules = {
     1: bot_modules.one_letter,
-    2: bot_modules.verification
+    2: bot_modules.verification,
+    3: bot_modules.banned_characters
 };
 
 
@@ -87,11 +88,7 @@ client.on('message', (message) => {
                 modules[jsondata[guildID][channelID]["use"]](message, jsondata, client);
             }
             // SPECIAL COMMANDS
-            if (channel.id === "647758971825946634") {
-                if (content.length !== 1) {
-                    message.delete();
-                }
-            } else if (content === "<@&641280891645067305>, <@!596351092602699787> is offline.") {
+            if (content === "<@&641280891645067305>, <@!596351092602699787> is offline.") {
                 channel.send("<@!282866197727543297>");
             } else if (content.toLowerCase() === "creeper") {
                 if (channel.id !== "561997180638986242") {
@@ -112,12 +109,6 @@ client.on('message', (message) => {
                         static_functions.temp_message(static_embed.NoDiscordInvite(member), channel, 5000);
                     }
                 }
-            } else if (channel.id === "560892008840036372") {
-                const exclude = content.replace(":crayonboxa:", ""); // Replace crayonboxa emoji
-                if (exclude.toLowerCase().includes("b") || exclude.toLowerCase().includes("Ь")) {
-                    message.delete();
-                    static_functions.temp_message(static_embed.NotAllowedCharacter(member, "B"), channel, 5000);
-                }
             } else if (content.toLowerCase().startsWith("pls penis")) {
                 if (channel.id !== "598662819323314196" && channel.type !== "dm") {
                     console.log("pls penis will not be removed");
@@ -134,18 +125,6 @@ client.on('message', (message) => {
             } else if (content === "wynn!wynntils") {
                 // WYNNCRAFT
                 channel.send("<https://forums.wynncraft.com/threads/wynntils-make-your-wynncraft-experience-even-better-1-12.235908/>\n(1.12.*)");
-            } else if (channel.id === "638647989937897472") {
-                if (member.id !== "282866197727543297") {
-                    if (content === "aAAaaaaA" || content === "a­A­A­aa­a­a­A") {
-                        member.removeRole(verification, 'Correct message');
-                        client.channels.get(`638691842795503626`).send(`[cba verification] <@${member.id}> has verified ✨✨`);
-                    } else {
-                        static_functions.temp_message(static_embed.WrongVerifyMessage(member), channel, 7000);
-                        client.channels.get(`638691842795503626`).send(`[cba verification] <@${member.id}> failed, they sent:\n${content}`);
-                    }
-
-                    message.delete();
-                }
             }
         }
     }

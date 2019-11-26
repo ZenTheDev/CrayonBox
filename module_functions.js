@@ -6,12 +6,11 @@
 
 const static_embed = require("./static_embed.js");
 const static_functions = require("./static_functions.js");
-const bot_funcitions = require("./bot_functions.js");
-const bot_modules = require("./module_functions.js");
 
 module.exports = {
     one_letter,
-    verification
+    verification,
+    banned_characters
 };
 
 
@@ -30,7 +29,7 @@ async function verification(message, data, client){
             await member.removeRole(data[guildID]["verification"]["role"][channelID], 'Correct message');
             client.channels.get(data[guildID]["verificationlog"]).send(`[cba verification] <@${member.id}> has verified ✨✨`);
         } else {
-            static_functions.temp_message(static_embed.WrongVerifyMessage(member), channel, 7000);
+            await static_functions.temp_message(static_embed.WrongVerifyMessage(member), channel, 7000);
             client.channels.get(data[guildID]["verificationlog"]).send(`[cba verification] <@${member.id}> failed, they sent:\n${content}`);
         }
 
@@ -42,5 +41,33 @@ async function one_letter(message, data, client) {
     const content = message.content;
     if (content.length !== 1) {
         message.delete();
+    }
+}
+
+async function banned_characters(message, data, client) {
+    const member = message.member;
+    const content = message.content;
+    const guild = message.guild;
+    const channel = message.channel;
+
+    const guildID = guild.id.toString();
+    const channelID = channel.id.toString();
+
+    let excluded = content.toLowerCase();
+    data[guildID][channelID]["ignore"].forEach(function (item, index) {
+        excluded = excluded.replace(item, "");
+    });
+
+    let passing = true;
+
+    data[guildID][channelID]["forbidden"].forEach(function (item, index) {
+        if (excluded.includes(item)){
+            passing = false;
+        }
+    });
+
+    if (!passing){
+        message.delete();
+        await static_functions.temp_message(static_embed.NotAllowedCharacter(member, "B"), channel, 5000);
     }
 }
