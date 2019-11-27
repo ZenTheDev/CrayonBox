@@ -20,6 +20,6 @@ jobs:
     - name: npm run
       run: |
         npm ci
-        npm run bot
+        npm start bot.js
       env:
         CI: true
