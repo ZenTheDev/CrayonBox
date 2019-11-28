@@ -36,7 +36,7 @@ async function acceptTrialMod(message) {
         if (!trial_member) {
             channel.send(`The correct usage is \`${prefix}accept @user\``); // Triggers if the user donsn't tag a user in the message
         } else {
-            client.channels.get(`607218116937908256`).send(static_embed.TrialModAccept(member, trial_member.user, guild));
+            client.channels.get("607218116937908256").send(static_embed.TrialModAccept(member, trial_member.user, guild));
 
             trial_member.addRole(role).catch(console.error);
             message.delete();
