@@ -46,9 +46,11 @@ client.on('message', (message) => {
     
     const channelID = message.channel.id.toString();
     let prefix = jsonData["baseprefix"];
+    let guildID;
+    let guild;
     if (channel.type !== "dm") {
-        const guild = message.guild;
-        const guildID = guild.id.toString();
+        guild = message.guild;
+        guildID = guild.id.toString();
         prefix = jsonData[guildID]["prefix"];
     }
 
