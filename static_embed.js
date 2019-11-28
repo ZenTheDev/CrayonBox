@@ -17,7 +17,7 @@ function TrialModAccept(accepter, trialmod, guild) {
         .setAuthor(accepter.username, accepter.avatarURL)
         .setTitle(`Hi, your mod application in ${guild.name} has been accepted!`)
         .setTimestamp()
-        .setFooter(`For ${trialmod.user.username}, made by VukAnd12 and Gravity Assist`);
+        .setFooter(`For ${trialmod.username}, made by VukAnd12 and Gravity Assist`);
 }
 
 function TrialModAddWarn(trialmod) {
