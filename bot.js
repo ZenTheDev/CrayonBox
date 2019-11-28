@@ -48,13 +48,13 @@ client.on('message', (message) => {
     
     let guildID;
     let guild;
+    var prefix = jsonData["baseprefix"];
     if (channel.type !== "dm") {
         guild = message.guild;
         guildID = guild.id.toString();
-        const prefix = jsonData[guildID]["prefix"];
-    } else {
-        const prefix = jsonData["baseprefix"];
+        prefix = jsonData[guildID]["prefix"];
     }
+    console.log(prefix);
 
     if (content.toLowerCase() === "creeper") {
         if (channel.id !== "561997180638986242") {
