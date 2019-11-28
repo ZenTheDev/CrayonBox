@@ -2,10 +2,6 @@
  * Copyright (c) 2019.
  * All rights lies to "VukAnd12#4407" and "Gravity Assist#0852"
  */
-
-const Discord = require('discord.js');
-const client = new Discord.Client();
-
 const static_embed = require("./static_embed.js");
 const static_functions = require("./static_functions.js");
 
@@ -16,14 +12,14 @@ module.exports = {
 };
 
 
-async function test(message) {
+async function test(message, client) {
     const channel = message.channel;
 
     channel.send("Don't even try you actual fucking shit.");
 }
 
 
-async function acceptTrialMod(message) {
+async function acceptTrialMod(message, client) {
     const guild = message.guild;
     const mentions = message.mentions;
     const member = message.member;
