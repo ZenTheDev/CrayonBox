@@ -64,16 +64,19 @@ client.on('message', (message) => {
     }
 
     if (!message.author.bot) {
-        if (message.content.toLowerCase().startsWith(prefix) && channel.type !== "dm") {
+        if (message.content.toLowerCase().startsWith(prefix)) {
 
             const args = message.content.slice(prefix.length).split(/ +/);
             const command = args.shift().toLowerCase();
-
-            if (jsonData[guildID]["commands"].hasOwnProperty(command)) {
-                jsonActions[jsonData[guildID]["commands"][command]["action"].toString()](message, client);
-            } else {
-                channel.send("Unknow command");
+            
+            if (channel.type !== "dm") {
+                if (jsonData[guildID]["commands"].hasOwnProperty(command)) {
+                    jsonActions[jsonData[guildID]["commands"][command]["action"].toString()](message, client);
+                } else {
+                    channel.send("Unknow command");
+                }
             }
+            
         } else {
 
             // solve everything over JSON Configuration
