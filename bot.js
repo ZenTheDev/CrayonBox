@@ -39,13 +39,6 @@ client.once('ready', () => {
 client.on('message', (message) => {
 
     let old_data = JSON.stringify(jsonData, null, 2);
-    if (channel.type !== "dm") {
-        const guild = message.guild;
-        const guildID = guild.id.toString();
-        const prefix = jsonData[guildID]["prefix"];
-    } else {
-        const prefix = jsonData["baseprefix"];
-    }
     
     const member = message.member;
     const channel = message.channel;
@@ -53,7 +46,13 @@ client.on('message', (message) => {
     
     const channelID = message.channel.id.toString();
     
-    
+    if (channel.type !== "dm") {
+        const guild = message.guild;
+        const guildID = guild.id.toString();
+        const prefix = jsonData[guildID]["prefix"];
+    } else {
+        const prefix = jsonData["baseprefix"];
+    }
 
     if (content.toLowerCase() === "creeper") {
         if (channel.id !== "561997180638986242") {
