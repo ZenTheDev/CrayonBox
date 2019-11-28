@@ -67,7 +67,7 @@ client.on('message', (message) => {
             const command = args.shift().toLowerCase();
 
             if (jsonData[guildID]["commands"].hasOwnProperty(command)) {
-                jsonActions[jsonData[guildID]["commands"][command]["action"].toString()](message);
+                jsonActions[jsonData[guildID]["commands"][command]["action"].toString()](message, client);
             } else {
                 channel.send("Unknow command");
             }
