@@ -54,9 +54,7 @@
     }
   },
   "386152123760640030": {
-    "specialchannels": [
-      "647384954635943936"
-    ],
+    "specialchannels": [],
     "prefix": "cc!",
     "verificationlog": "647384954635943936",
     "verification": {
