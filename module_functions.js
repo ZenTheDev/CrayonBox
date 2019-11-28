@@ -24,7 +24,7 @@ async function verification(message, data, client){
     const guildID = guild.id.toString();
     const channelID = channel.id.toString();
 
-    if (data[guildID][channelID]["nodelete"].includes(memberID)) {
+    if (!data[guildID][channelID]["nodelete"].includes(memberID)) {
         if (data[guildID]["verification"][channelID].includes(content)) {
             await member.removeRole(data[guildID]["verification"]["role"][channelID], 'Correct message');
             client.channels.get(data[guildID]["verificationlog"]).send(`[cba verification] <@${member.id}> has verified ✨✨`);
