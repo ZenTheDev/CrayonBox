@@ -39,15 +39,21 @@ client.once('ready', () => {
 client.on('message', (message) => {
 
     let old_data = JSON.stringify(jsonData, null, 2);
-    const guildID = message.guild.id.toString();
-    const channelID = message.channel.id.toString();
-
-    const guild = message.guild;
+    if (channel.type !== "dm") {
+        const guild = message.guild;
+        const guildID = guild.id.toString();
+        const prefix = jsonData[guildID]["prefix"];
+    } else {
+        const prefix = jsonData["baseprefix"];
+    }
+    
     const member = message.member;
     const channel = message.channel;
     const content = message.content;
-
-    const prefix = jsonData[guildID]["prefix"];
+    
+    const channelID = message.channel.id.toString();
+    
+    
 
     if (content.toLowerCase() === "creeper") {
         if (channel.id !== "561997180638986242") {
@@ -56,7 +62,7 @@ client.on('message', (message) => {
     }
 
     if (!message.author.bot) {
-        if (message.content.toLowerCase().startsWith(prefix)) {
+        if (message.content.toLowerCase().startsWith(prefix) && channel.type !== "dm") {
 
             const args = message.content.slice(prefix.length).split(/ +/);
             const command = args.shift().toLowerCase();
@@ -69,9 +75,12 @@ client.on('message', (message) => {
         } else {
 
             // solve everything over JSON Configuration
-            if (jsonData[guildID]["specialchannels"].includes(channelID)) {
-                modules[jsonData[guildID][channelID]["use"].toString()](message, jsonData, client);
+            if (channel.type !== "dm") {
+                if (jsonData[guildID]["specialchannels"].includes(channelID)) {
+                    modules[jsonData[guildID][channelID]["use"].toString()](message, jsonData, client);
+                }
             }
+            
 
             // not implemented into JSON configuration
             // SPECIAL COMMANDS
