@@ -3,6 +3,13 @@
  * All rights lies to "VukAnd12#4407" and "Gravity Assist#0852"
  */
 
+module.exports = {
+    has_user_role,
+    get_role,
+    ContainsNoGuildDiscordInvite,
+    temp_message
+};
+
 
 function has_user_role(user, role_name) {
     return user.roles.find(r => r.name === role_name);
@@ -62,10 +69,4 @@ function ContainsNoGuildDiscordInvite(content, guild) {
     return contains_no_guild_invite;
 }
 
-module.exports = {
-    has_user_role,
-    get_role,
-    ContainsNoGuildDiscordInvite,
-    temp_message
-};
 

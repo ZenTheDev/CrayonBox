@@ -5,11 +5,24 @@
 
 const Discord = require('discord.js');
 
+module.exports = {
+    NoDiscordInvite,
+    WelcomeMessage,
+    NotAllowedCharacter,
+    WrongVerifyMessage,
+    TrialModAddWarn,
+    TrialModAccept,
+    FeatureRequest,
+    FeatureRequestResponse
+};
+
+
 const TrialModColor = "#c8d5ee";
 const wrongVerifyColor = "#ff0000";
 const NotAllowedCharacterColor = "#ff0000";
 const NoDiscordInviteColor = "#ff0000";
 const WelcomeMessageColor = "#00ff00";
+const featuremessagecolor = "#00FFFF";
 
 function TrialModAccept(accepter, trialmod, guild) {
     return new Discord.RichEmbed()
@@ -68,11 +81,25 @@ function WelcomeMessage() {
         .setFooter(`Made by VukAnd12`);
 }
 
-module.exports = {
-    NoDiscordInvite,
-    WelcomeMessage,
-    NotAllowedCharacter,
-    WrongVerifyMessage,
-    TrialModAddWarn,
-    TrialModAccept
-};
+function FeatureRequest(requested_by, requested_feature, featureID) {
+    return new Discord.RichEmbed()
+        .setColor(featuremessagecolor)
+        .setTitle('Feature Request')
+        .addField("Requested Feature", requested_feature, false)
+        .addField("Feature ID", featureID, false)
+        .setAuthor(requested_by.username + "#" + requested_by.discriminator, requested_by.avatarURL)
+        .setTimestamp()
+        .setFooter(`Made by Gravity Assist#0852`);
+}
+
+function FeatureRequestResponse(requested_by, requested_feature, featureID) {
+    return new Discord.RichEmbed()
+        .setColor(featuremessagecolor)
+        .setTitle('Feature Request')
+        .addField("Requested Feature", requested_feature, false)
+        .addField("Feature ID", featureID, false)
+        .setAuthor(requested_by.username + "#" + requested_by.discriminator, requested_by.avatarURL)
+        .setTimestamp()
+        .setFooter(`Made by Gravity Assist#0852`);
+}
+

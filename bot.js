@@ -17,12 +17,13 @@ const verification = '604367758767161374';
 
 const client = new Discord.Client();
 
-const jsonData = JSON.parse(fs.readFileSync('./data.json', 'utf8'));
+let jsonData = JSON.parse(fs.readFileSync('./data.json', 'utf8'));
 
 
 const jsonActions = {
     0: bot_functions.test,
-    1: bot_functions.acceptTrialMod
+    1: bot_functions.acceptTrialMod,
+    2: bot_functions.feature_request
 };
 const modules = {
     1: bot_modules.one_letter,
@@ -48,18 +49,17 @@ client.on('message', (message) => {
     
     let guildID;
     let guild;
-    var prefix = jsonData["baseprefix"];
-    console.log("baseprefix = " + prefix);
+    let prefix = jsonData["baseprefix"];
+
     if (channel.type !== "dm") {
         guild = message.guild;
         guildID = guild.id.toString();
         prefix = jsonData[guildID]["prefix"];
     }
-    console.log("prefix = " + prefix);
 
     if (content.toLowerCase() === "creeper") {
         if (channel.id !== "561997180638986242") {
-            message.reply("this again? Just go to <#561997180638986242>...");
+            channel.send("this again? Just go to <#561997180638986242>...").then();
         }
     }
 
@@ -73,7 +73,7 @@ client.on('message', (message) => {
                 if (jsonData[guildID]["commands"].hasOwnProperty(command)) {
                     jsonActions[jsonData[guildID]["commands"][command]["action"].toString()](message, client);
                 } else {
-                    channel.send("Unknow command");
+                    channel.send("Unknow command").then();
                 }
             }
             
@@ -85,7 +85,6 @@ client.on('message', (message) => {
                     modules[jsonData[guildID][channelID]["use"].toString()](message, jsonData, client);
                 }
             }
-            
 
             // not implemented into JSON configuration
             // SPECIAL COMMANDS

@@ -8,6 +8,10 @@
       "560892008840036372"
     ],
     "commands": {
+      "feature": {
+        "action": 2,
+        "ignoredchannels": []
+      },
       "accept": {
         "action": 1,
         "ignoredchannels": []
@@ -55,7 +59,7 @@
   },
   "386152123760640030": {
     "specialchannels": [],
-    "prefix": "cc!",
+    "prefix": "cb!",
     "verificationlog": "647384954635943936",
     "verification": {
       "647384954635943936": [
@@ -67,6 +71,10 @@
       }
     },
     "commands": {
+      "feature": {
+        "action": 2,
+        "ignoredchannels": []
+      },
       "accept": {
         "action": 1,
         "ignoredchannels": []

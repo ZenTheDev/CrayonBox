@@ -7,8 +7,9 @@ const static_functions = require("./static_functions.js");
 
 
 module.exports = {
+    test,
     acceptTrialMod,
-    test
+    feature_request
 };
 
 
@@ -16,6 +17,15 @@ async function test(message, client) {
     const channel = message.channel;
 
     channel.send("Don't even try you actual fucking shit.");
+}
+
+
+async function feature_request(message, client) {
+    const content = message.content;
+    const requested_feature = content.substring(content.search(" ")+1);
+
+    client.channels.get(`644544776753905670`).send(static_embed.FeatureRequest(message.author, requested_feature, parseInt(message.id).toString(16)));
+    await message.channel.send(static_embed.FeatureRequestResponse(message.author, requested_feature, parseInt(message.id).toString(16)));
 }
 
 

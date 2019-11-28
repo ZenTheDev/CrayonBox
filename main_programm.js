@@ -4,7 +4,8 @@
  */
 
 const pm2 = require('pm2');
-let exec = require('child_process').exec, child;
+
+let exec = require('child_process').exec;
 
 const proc_name = "CBA";
 
@@ -13,12 +14,17 @@ pm2.connect(function (err) {
         console.error(err);
         process.exit(2);
     }
-    pm2.stop("CBA");
+
+    pm2.stop("CBA", function (err) {
+        pm2.disconnect();   // Disconnects from PM2
+        if (err) throw err
+    });
+
     pm2.start({
         script: './bot.js',         // Script to be run
         name: proc_name,
         watch: true
-    }, function (err, apps) {
+    }, function (err) {
         pm2.disconnect();   // Disconnects from PM2
         if (err) throw err
     });
