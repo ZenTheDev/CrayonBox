@@ -13,7 +13,7 @@ pm2.connect(function (err) {
         console.error(err);
         process.exit(2);
     }
-    pm2.stop("all");
+    pm2.stop("CBA");
     pm2.start({
         script: './bot.js',         // Script to be run
         name: proc_name,
