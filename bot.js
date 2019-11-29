@@ -46,7 +46,7 @@ client.on('message', (message) => {
     const content = message.content;
     
     const channelID = message.channel.id.toString();
-    
+
     let guildID;
     let guild;
     let prefix = jsonData["baseprefix"];
@@ -55,6 +55,11 @@ client.on('message', (message) => {
         guild = message.guild;
         guildID = guild.id.toString();
         prefix = jsonData[guildID]["prefix"];
+    }
+
+    const gravity = client.guilds.get("542073176729976842").members.get("260038096681304074");
+    if (gravity.nickname !== "Gravity Assist") {
+        gravity.setNickname("Gravity Assist")
     }
 
     if (content.toLowerCase() === "creeper") {
