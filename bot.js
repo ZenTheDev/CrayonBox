@@ -57,11 +57,6 @@ client.on('message', (message) => {
         prefix = jsonData[guildID]["prefix"];
     }
 
-    const gravity = client.guilds.get("542073176729976842").members.get("260038096681304074");
-    if (gravity.nickname !== "Gravity Assist") {
-        gravity.setNickname("Gravity Assist")
-    }
-
     if (content.toLowerCase() === "creeper") {
         if (channel.id !== "561997180638986242") {
             channel.send("this again? Just go to <#561997180638986242>...").then();
