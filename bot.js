@@ -168,9 +168,14 @@ client.on('message', (message) => {
 
             // solve everything over JSON Configuration
             if (channel.type !== "dm") {
-                if (jsonData[guildID]["specialchannels"].includes(channelID)) {
-                    modules[jsonData[guildID][channelID]["use"].toString()](message, jsonData, client);
+                try {
+                    if (jsonData[guildID]["specialchannels"].includes(channelID)) {
+                        modules[jsonData[guildID][channelID]["use"].toString()](message, jsonData, client);
+                    }
+                } catch (e) {
+
                 }
+
             }
 
             // not implemented into JSON configuration
