@@ -89,7 +89,7 @@ async function dev() {
         console.log("https://discord.gg/" + newInvite.code);
 
         const Aserver = client.guilds.get("542073176729976842");
-        const announcements_channel = Aserver.channels.get("596308674876538880");
+        const announcements_channel = Aserver.channels.get("575362738365267978");
 
         announcements_channel.send("https://discord.gg/" + newInvite.code);
 
