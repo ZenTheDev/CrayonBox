@@ -225,7 +225,6 @@ client.on('message', (message) => {
 });
 
 client.on('guildMemberAdd', (guildMember) => {
-    guildMember.addRole(verification, "Rules detection");
     guildMember.send(static_embed.WelcomeMessage());
 });
 
