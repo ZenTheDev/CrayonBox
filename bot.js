@@ -27,8 +27,7 @@ const jsonActions = {
 };
 const modules = {
     1: bot_modules.one_letter,
-    2: bot_modules.verification,
-    3: bot_modules.banned_characters,
+    2: bot_modules.banned_characters,
 };
 
 async function dev() {
