@@ -75,8 +75,8 @@ function WelcomeMessage() {
     return new Discord.RichEmbed()
         .setColor(WelcomeMessageColor)
         .setTitle('Welcome to the server!')
-        .setAuthor('Verification System', 'https://b.thumbs.redditmedia.com/OIDktcKCqI8n4CnTj2SNZAQtXjBWxo9Qah6ku96YsME.png')
-        .setDescription('To chat, you need to verify you\'ve read the rules. You can do so at <#638647989937897472>.\nAnd of course, AAAAAAAAAAAAAAA')
+        .setAuthor('Join Message', 'https://b.thumbs.redditmedia.com/OIDktcKCqI8n4CnTj2SNZAQtXjBWxo9Qah6ku96YsME.png')
+        .setDescription('Please read the rules and thanks for joining!')
         .setTimestamp()
         .setFooter(`Made by VukAnd12`);
 }
