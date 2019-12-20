@@ -58,7 +58,7 @@ function NotAllowedCharacter(member, character) {
         .setDescription(`${character} is not allowed here, for obvious reasons.`)
         .setImage('https://media.tenor.com/images/002ad9767dabb97d0dfcc0300ad95da7/tenor.gif')
         .setTimestamp()
-        .setFooter(`For ${member.user.username}`);
+        .setFooter(`For ${member.user.username}, made by VukAnd12 and Gravity Assist`);
 }
 
 function NoDiscordInvite(member) {
@@ -68,7 +68,7 @@ function NoDiscordInvite(member) {
         .setDescription('Per rule 6, it is not allowed to send invites to other Discord servers.')
         .setImage('https://steamuserimages-a.akamaihd.net/ugc/961973556167374789/672A76928C54C3E57E081E0EB9E9A752B18B1778/')
         .setTimestamp()
-        .setFooter(`For ${member.user.username}`);
+        .setFooter(`For ${member.user.username}, made by VukAnd12 and Gravity Assist`);
 }
 
 function WelcomeMessage() {
@@ -78,7 +78,7 @@ function WelcomeMessage() {
         .setAuthor('Join Message', 'https://b.thumbs.redditmedia.com/OIDktcKCqI8n4CnTj2SNZAQtXjBWxo9Qah6ku96YsME.png')
         .setDescription('Please read the rules and thanks for joining!')
         .setTimestamp()
-        .setFooter(`Made by VukAnd12`);
+        .setFooter(`Made by VukAnd12 and Gravity Assist`);
 }
 
 function FeatureRequest(requested_by, requested_feature, featureID) {

@@ -4,10 +4,9 @@
   },
   "542073176729976842": {
     "prefix": "c!",
-    "invite": "NPv25A",
+    "invite": "cNzT4Nz",
     "specialchannels": [
       "647758971825946634",
-      "638647989937897472",
       "560892008840036372"
     ],
     "commands": {
@@ -24,24 +23,15 @@
         "ignoredchannels": []
       }
     },
-    "638647989937897472": {
-      "use": 2,
-      "nodelete": [
-        "282866197727543297"
-      ],
-      "ignore": [],
-      "forbidden": []
-    },
     "verification": {
-      "638647989937897472": [
-        "aAAaaaaA",
-        "a­A­A­aa­a­a­A"
+      "channel_id": [
+        "verification messages"
       ],
       "role": {
-        "638647989937897472": "604367758767161374"
+        "channel_id": "role_id which get removed"
       }
     },
-    "verificationlog": "638691842795503626",
+    "verificationlog": "channel_id for verification log",
     "647758971825946634": {
       "use": 1,
       "nodelete": [],

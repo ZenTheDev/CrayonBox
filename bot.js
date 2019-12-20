@@ -13,7 +13,6 @@ const static_functions = require("./static_functions.js");
 const bot_functions = require("./bot_functions.js");
 const bot_modules = require("./module_functions.js");
 
-const verification = '604367758767161374';
 
 const client = new Discord.Client();
 
@@ -27,7 +26,8 @@ const jsonActions = {
 };
 const modules = {
     1: bot_modules.one_letter,
-    2: bot_modules.banned_characters,
+    2: bot_modules.verification,
+    3: bot_modules.banned_characters,
 };
 
 async function dev() {
