@@ -1,6 +1,4 @@
 # crayonbox-assist 
-![](https://github.com/VukAnd/crayonbox-assist/workflows/Node%20CI/badge.svg)
-
 JavaScript part of the Discord bot [Crayon Box].
 
 ##### [Join Official Support server]
