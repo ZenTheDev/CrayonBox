@@ -216,6 +216,11 @@ client.on('message', (message) => {
             } else if (content === "wynn!wynntils") {
                 // WYNNCRAFT
                 channel.send("<https://forums.wynncraft.com/threads/wynntils-make-your-wynncraft-experience-even-better-1-12.235908/>\n(1.12.*)");
+            } else if (content.toLowerCase().includes("mick") && content.toLowerCase().includes("retard")) {
+                // Create the attachment using MessageAttachment (disclaimer - I have no idea if this is going to work)
+		        const attachment = new MessageAttachment('https://i.imgur.com/IDrWOXx.png');
+		        // Send the attachment in the message channel
+		        channel.send(attachment);   
             }
         }
     }
