@@ -28,6 +28,7 @@ const modules = {
     1: bot_modules.one_letter,
     2: bot_modules.verification,
     3: bot_modules.banned_characters,
+    4: bot_modules.no_discord_invites
 };
 
 async function dev() {
@@ -56,7 +57,8 @@ async function dev() {
         });
     }
 
-    while (counter !== invites.size) {} // Wait until foreach is finish
+    while (counter !== invites.size) {
+    } // Wait until foreach is finish
 
     if (!orginal_exist) {
         let invite_channel = null;
@@ -103,10 +105,11 @@ async function dev() {
 function sleep(milliseconds) {
     return new Promise(resolve => setTimeout(resolve, milliseconds));
 }
+
 client.once('ready', async () => {
     console.log('crayonbox-assist has started up successfully.');
     while (1 === 1) {
-        dev();
+        //dev();
         await sleep(10000);
     }
 });
@@ -174,7 +177,6 @@ client.on('message', (message) => {
                 } catch (e) {
 
                 }
-
             }
 
             // not implemented into JSON configuration
@@ -193,12 +195,7 @@ client.on('message', (message) => {
 
             if (content.toLowerCase().includes("discord.gg/") || content.toLowerCase().includes("discordapp.com/invite/")) {
                 if (!static_functions.has_user_role(member, "Discord Mod")) {
-
-                    if (!static_functions.ContainsNoGuildDiscordInvite(content, guild)) {
-                        message.delete();
-
-                        static_functions.temp_message(static_embed.NoDiscordInvite(member), channel, 5000);
-                    }
+                    modules[4](message, jsonData, client);
                 }
             } else if (content.toLowerCase().startsWith("pls penis")) {
                 if (channel.id !== "598662819323314196" && channel.type !== "dm") {
@@ -218,8 +215,8 @@ client.on('message', (message) => {
                 channel.send("<https://forums.wynncraft.com/threads/wynntils-make-your-wynncraft-experience-even-better-1-12.235908/>\n(1.12.*)");
             } else if (content.toLowerCase().includes("mick") && content.toLowerCase().includes("retard")) {
                 channel.send("", {
-    file: "https://i.imgur.com/IDrWOXx.png" // Or replace with FileOptions object
-});
+                    file: "https://i.imgur.com/IDrWOXx.png" // Or replace with FileOptions object
+                });
             }
         }
     }

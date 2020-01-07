@@ -29,25 +29,29 @@ async function temp_message(content, channel, lifetime) {
 /**
  * @return {boolean}
  */
-function ContainsNoGuildDiscordInvite(content, guild) {
+async function ContainsNoGuildDiscordInvite(content, guild) {
     let search_text = content.toLowerCase();
     let contains_no_guild_invite = false;
     let n = 0;
 
-    const invites = guild.fetchInvites();
+    const invites = await guild.fetchInvites();
     const guild_invites = [];
 
     let message_invite = "";
 
-    for (const invite_code in invites) {
-        guild_invites.push(("discord.gg/" + invite_code).toLowerCase());
-        guild_invites.push(("discordapp.com/invite/" + invite_code).toLowerCase());
+    for (const invite_code in invites.array()) {
+        guild_invites.push(("discord.gg/" + (invites.array()[invite_code].code)).toLowerCase());
+        guild_invites.push(("discordapp.com/invite/" + (invites.array()[invite_code].code)).toLowerCase());
     }
 
     while (search_text.includes("discord.gg/") && !contains_no_guild_invite) {
         n = search_text.search("discord.gg/");
 
-        message_invite = search_text.substring(n, search_text.substring(n).search(" "));
+        if (search_text.substring(n).search(" ") === -1) {
+            message_invite = search_text.substring(n);
+        } else {
+            message_invite = search_text.substring(n, search_text.substring(n).search(" "));
+        }
         if (!guild_invites.includes(message_invite)) {
             contains_no_guild_invite = true;
         }
@@ -59,7 +63,11 @@ function ContainsNoGuildDiscordInvite(content, guild) {
     while (search_text.includes("discordapp.com/invite/") && !contains_no_guild_invite) {
         n = search_text.search("discordapp.com/invite/");
 
-        message_invite = search_text.substring(n, search_text.substring(n).search(" "));
+        if (search_text.substring(n).search(" ") === -1) {
+            message_invite = search_text.substring(n);
+        } else {
+            message_invite = search_text.substring(n, search_text.substring(n).search(" "));
+        }
         if (!guild_invites.includes(message_invite)) {
             contains_no_guild_invite = true;
         }

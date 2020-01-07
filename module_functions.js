@@ -10,7 +10,8 @@ const static_functions = require("./static_functions.js");
 module.exports = {
     one_letter,
     verification,
-    banned_characters
+    banned_characters,
+    no_discord_invites
 };
 
 
@@ -69,5 +70,18 @@ async function banned_characters(message, data, client) {
     if (!passing){
         message.delete();
         await static_functions.temp_message(static_embed.NotAllowedCharacter(member, "B"), channel, 5000);
+    }
+}
+
+async function no_discord_invites(message, data, client) {
+    const content = message.content;
+    const guild = message.guild;
+    const member = message.member;
+    const channel = message.channel;
+
+
+    if (await static_functions.ContainsNoGuildDiscordInvite(content, guild)) {
+        message.delete();
+        await static_functions.temp_message(static_embed.NoDiscordInvite(member), channel, 5000);
     }
 }
