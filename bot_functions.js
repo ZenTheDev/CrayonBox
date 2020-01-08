@@ -73,7 +73,7 @@ async function giveaway_drop(message, data, client) {
                         }
                     }).catch(collected => {
                     gmessage.clearReactions();
-                    gmessage.edit(static_embed.GiveawayWinner(title, message.author));
+                    gmessage.edit(static_embed.GiveawayInvalid(title, message.author));
                 });
             });
     } else {
