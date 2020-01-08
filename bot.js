@@ -163,7 +163,7 @@ client.on('message', (message) => {
                 if (jsonData[guildID]["commands"].hasOwnProperty(command)) {
                     jsonActions[jsonData[guildID]["commands"][command]["action"].toString()](message, client);
                 } else {
-                    channel.send("Unknow command").then();
+                    channel.send("Uh oh! I don't think that command exists...").then();
                 }
             }
 
