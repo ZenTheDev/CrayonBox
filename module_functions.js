@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019.
+ * Copyright (c) 2020.
  * All rights lies to "VukAnd12#4407" and "Gravity Assist#0852"
  */
 
@@ -85,3 +85,4 @@ async function no_discord_invites(message, data, client) {
         await static_functions.temp_message(static_embed.NoDiscordInvite(member), channel, 5000);
     }
 }
+

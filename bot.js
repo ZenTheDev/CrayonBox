@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019.
+ * Copyright (c) 2020.
  * All rights lies to "VukAnd12#4407" and "Gravity Assist#0852"
  */
 
@@ -22,7 +22,8 @@ let jsonData = JSON.parse(fs.readFileSync('./data.json', 'utf8'));
 const jsonActions = {
     0: bot_functions.test,
     1: bot_functions.acceptTrialMod,
-    2: bot_functions.feature_request
+    2: bot_functions.feature_request,
+    3: bot_functions.giveaway_drop
 };
 const modules = {
     1: bot_modules.one_letter,

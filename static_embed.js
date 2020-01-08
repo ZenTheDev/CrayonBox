@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019.
+ * Copyright (c) 2020.
  * All rights lies to "VukAnd12#4407" and "Gravity Assist#0852"
  */
 
@@ -13,7 +13,10 @@ module.exports = {
     TrialModAddWarn,
     TrialModAccept,
     FeatureRequest,
-    FeatureRequestResponse
+    FeatureRequestResponse,
+    GiveawayDrop,
+    GiveawayWinner,
+    GiveawayInvalid
 };
 
 
@@ -23,6 +26,9 @@ const NotAllowedCharacterColor = "#ff0000";
 const NoDiscordInviteColor = "#ff0000";
 const WelcomeMessageColor = "#00ff00";
 const featuremessagecolor = "#00FFFF";
+const giveawaycolor = "#d0a33e";
+const giveawaywinnercolor = "#D000BC";
+const giveawayinvalidcolor = "#8EA5D0";
 
 function TrialModAccept(accepter, trialmod, guild) {
     return new Discord.RichEmbed()
@@ -99,6 +105,42 @@ function FeatureRequestResponse(requested_by, requested_feature, featureID) {
         .addField("Requested Feature", requested_feature, false)
         .addField("Feature ID", featureID, false)
         .setAuthor(requested_by.username + "#" + requested_by.discriminator, requested_by.avatarURL)
+        .setTimestamp()
+        .setFooter(`Made by Gravity Assist#0852`);
+}
+
+function GiveawayDrop(prize, dropped_by) {
+    return new Discord.RichEmbed()
+        .setColor(giveawaycolor)
+        .setTitle('Giveaway Drop')
+        .addField("Prize", prize, false)
+        .addField("Winner", 'no winner yet', false)
+        .addField("How to win?", 'be the first who reacts with :tada:', false)
+        .setAuthor(dropped_by.username + "#" + dropped_by.discriminator, dropped_by.avatarURL)
+        .setTimestamp()
+        .setFooter(`Made by Gravity Assist#0852`);
+}
+
+function GiveawayWinner(prize, dropped_by, winner) {
+    return new Discord.RichEmbed()
+        .setColor(giveawaywinnercolor)
+        .setTitle('Giveaway Drop')
+        .addField("Prize", prize, false)
+        .addField("Winner", winner, false)
+        .addField("How to win?", 'be the first who reacts with :tada:', false)
+        .setAuthor(dropped_by.username + "#" + dropped_by.discriminator, dropped_by.avatarURL)
+        .setTimestamp()
+        .setFooter(`Made by Gravity Assist#0852`);
+}
+
+function GiveawayInvalid(prize, dropped_by) {
+    return new Discord.RichEmbed()
+        .setColor(giveawayinvalidcolor)
+        .setTitle('Giveaway Drop')
+        .addField("Prize", prize, false)
+        .addField("Winner", 'No longer valid', false)
+        .addField("How to win?", 'be the first who reacts with :tada:', false)
+        .setAuthor(dropped_by.username + "#" + dropped_by.discriminator, dropped_by.avatarURL)
         .setTimestamp()
         .setFooter(`Made by Gravity Assist#0852`);
 }

@@ -21,6 +21,10 @@
       "test": {
         "action": 0,
         "ignoredchannels": []
+      },
+      "dropgiveaway": {
+        "action": 3,
+        "ignoredchannels": []
       }
     },
     "verification": {
@@ -75,6 +79,10 @@
       },
       "test": {
         "action": 0,
+        "ignoredchannels": []
+      },
+      "dropgiveaway": {
+        "action": 3,
         "ignoredchannels": []
       }
     }
