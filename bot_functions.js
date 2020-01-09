@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2020.
- * All rights lies to "Vuk#4407" and "Gravity Assist#0852"
+ * All rights lies to "VukAnd12#4407" and "Gravity Assist#0852"
  */
 const static_embed = require("./static_embed.js");
 const static_functions = require("./static_functions.js");
@@ -55,7 +55,7 @@ async function acceptTrialMod(message, client) {
 
 async function giveaway_drop(message, data, client) {
     const filter = (reaction, user) => {
-        return ['🎉'].includes(reaction.emoji.name) && user.bot === false;
+        return ['🎉'].includes(reaction.emoji.name) && user.bot === false && user.id !== message.member.id;
     };
     if (message.member.permissions.has('ADMINISTRATOR')) {
         if (message.mentions.channels.size !== 0) {
@@ -65,7 +65,7 @@ async function giveaway_drop(message, data, client) {
                     .then(gmessage => {
                         gmessage.react('🎉');
                         try {
-                            gmessage.awaitReactions(filter, {max: 1, time: 60000, errors: ['time']})
+                            gmessage.awaitReactions(filter, {max: 1, time: 600000, errors: ['time']})
                                 .then(collected => {
                                     const reaction = collected.first();
                                     const winner = collected.first().users.last();
