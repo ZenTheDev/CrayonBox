@@ -55,8 +55,14 @@
     }
   },
   "386152123760640030": {
+	"664732845759266836": {
+      "use": 1,
+      "nodelete": [],
+      "ignore": [],
+      "forbidden": []
+    },
     "invite": "4BdcNCQ",
-    "specialchannels": [],
+    "specialchannels": ["664732845759266836"],
     "prefix": "cb!",
     "verificationlog": "647384954635943936",
     "verification": {
