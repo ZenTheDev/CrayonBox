@@ -114,8 +114,8 @@ function GiveawayDrop(prize, dropped_by) {
         .setColor(giveawaycolor)
         .setTitle('Giveaway Drop')
         .addField("Prize", prize, false)
-        .addField("Winner", 'no winner yet', false)
-        .addField("How to win?", 'be the first who reacts with :tada:', false)
+        .addField("Winner", 'I haven\'t noticed any winners yet.', false)
+        .addField("How to win?", 'Be the first who reacts with :tada:', false)
         .setAuthor(dropped_by.username + "#" + dropped_by.discriminator, dropped_by.avatarURL)
         .setTimestamp()
         .setFooter(`Made by Gravity Assist#0852`);
@@ -124,10 +124,10 @@ function GiveawayDrop(prize, dropped_by) {
 function GiveawayWinner(prize, dropped_by, winner) {
     return new Discord.RichEmbed()
         .setColor(giveawaywinnercolor)
-        .setTitle('Giveaway Drop')
+        .setTitle('Giveaway Drop winner!')
         .addField("Prize", prize, false)
         .addField("Winner", winner, false)
-        .addField("How to win?", 'be the first who reacts with :tada:', false)
+        .addField("How to win?", 'Be the first who reacts with :tada:', false)
         .setAuthor(dropped_by.username + "#" + dropped_by.discriminator, dropped_by.avatarURL)
         .setTimestamp()
         .setFooter(`Made by Gravity Assist#0852`);
@@ -136,10 +136,10 @@ function GiveawayWinner(prize, dropped_by, winner) {
 function GiveawayInvalid(prize, dropped_by) {
     return new Discord.RichEmbed()
         .setColor(giveawayinvalidcolor)
-        .setTitle('Giveaway Drop')
+        .setTitle('Giveaway Drop expired')
         .addField("Prize", prize, false)
-        .addField("Winner", 'No longer valid', false)
-        .addField("How to win?", 'be the first who reacts with :tada:', false)
+        .addField("Winner", 'This prize is no longer valid.', false)
+        .addField("How to win?", 'Be the first who reacts with :tada:', false)
         .setAuthor(dropped_by.username + "#" + dropped_by.discriminator, dropped_by.avatarURL)
         .setTimestamp()
         .setFooter(`Made by Gravity Assist#0852`);
