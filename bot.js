@@ -124,6 +124,24 @@ client.on('guildUpdate', (oldGuild, newGuild) => {
         .catch(console.error);
 });
 
+client.on('messageUpdate', (oldMessage, newMessage) => {
+
+	if (!oldMessage.author.bot) {
+		const channel = oldMessage.channel;
+		const channelID = oldMessage.channel.id.toString();
+		if (channel.type !== "dm") {
+			try {
+				const guildID = oldMessage.guild.id.toString();
+				if (jsonData[guildID]["specialchannels"].includes(channelID)) {
+					modules[jsonData[guildID][channelID]["use"].toString()](newMessage, jsonData, client);
+				}
+			} catch (e) {
+
+            }
+        }
+	}
+});
+
 client.on('message', (message) => {
 
     /*if (message.content.toLowerCase() === "test") {
