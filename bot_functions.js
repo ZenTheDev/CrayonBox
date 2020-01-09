@@ -88,5 +88,7 @@ async function giveaway_drop(message, data, client) {
         } else {
          message.channel.send('I didn\'t see any channel.');
         }
-    } 
+    } else {
+        message.channel.send('Uh oh! It doesn\'t look like you can make giveaway drops yet :(')   
+    }
 }
