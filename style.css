@@ -1,11 +1,36 @@
-/* CSS files add styling rules to your content */
+/*
+ * Copyright (c) 2019.
+ * The copyright lies to Timo Hirsch-Hoffmann, further use is only permitted with reference to source
+ */
 
-body {
-  font-family: helvetica, arial, sans-serif;
-  margin: 2em;
+
+* {
+    -moz-user-select: none;
+    -webkit-user-select: none;
 }
 
-h1 {
-  font-style: italic;
-  color: #373fff;
+html, div, body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+canvas {
+    display: block;
+    vertical-align: bottom;
+}
+
+/* ---- particles.js container ---- */
+
+#particles-js {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(14, 14, 14);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
 }
