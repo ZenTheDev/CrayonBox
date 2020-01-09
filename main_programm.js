@@ -23,7 +23,8 @@ pm2.connect(function (err) {
     pm2.start({
         script: './bot.js',         // Script to be run
         name: proc_name,
-        watch: true
+        watch: true,
+		ignore_watch : "pm2.log"
     }, function (err) {
         pm2.disconnect();   // Disconnects from PM2
         if (err) throw err
