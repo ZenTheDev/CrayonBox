@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2020.
- * All rights lies to "VukAnd12#4407" and "Gravity Assist#0852"
+ * All rights lies to "Vuk#4407" and "Gravity Assist#0852"
  */
 const static_embed = require("./static_embed.js");
 const static_functions = require("./static_functions.js");
@@ -55,23 +55,25 @@ async function acceptTrialMod(message, client) {
 
 async function giveaway_drop(message, data, client) {
     const filter = (reaction, user) => {
-        return ['ðŸŽ‰'].includes(reaction.emoji.name) && user.bot === false;
+        return ['🎉'].includes(reaction.emoji.name) && user.bot === false;
     };
-    if (static_functions.has_user_role(message.member, "Discord Mod")) {
+    if (message.member.permissions.has('ADMINISTRATOR')) {
         if (message.mentions.channels.size !== 0) {
             if ((message.content.substring(message.content.search(' ') + 1).search(' ') + 1) !== 0) {
                 const prize = message.content.substring(message.content.search(' ') + 1).substring(message.content.substring(message.content.search(' ') + 1).search(' ') + 1);
                 message.mentions.channels.first().send(static_embed.GiveawayDrop(prize, message.author))
                     .then(gmessage => {
-                        gmessage.react('ðŸŽ‰');
+                        gmessage.react('🎉');
                         try {
                             gmessage.awaitReactions(filter, {max: 1, time: 60000, errors: ['time']})
                                 .then(collected => {
                                     const reaction = collected.first();
                                     const winner = collected.first().users.last();
-                                    if (reaction.emoji.name === 'ðŸŽ‰') {
+                                    if (reaction.emoji.name === '🎉') {
                                         gmessage.clearReactions();
                                         gmessage.edit(static_embed.GiveawayWinner(prize, message.author, '<@!' + winner.id + '>'));
+                                        gmessage.channel.send('<@!' + winner.id + '>' + ' has won the giveaway prize ' + prize);
+                                        winner.send(`🎉 __**You are the the Giveaway Drop winner**__ 🎉\n *Our price:* \`${prize}\` \n Contact <@!${message.member.id}> to collect your price.`);
                                     }
                                 }).catch(collected => {
                                     gmessage.clearReactions();
