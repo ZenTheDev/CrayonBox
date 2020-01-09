@@ -55,28 +55,35 @@ async function acceptTrialMod(message, client) {
 
 async function giveaway_drop(message, data, client) {
     const filter = (reaction, user) => {
-        return ['🎉'].includes(reaction.emoji.name) && user.id === message.author.id;
+        return ['🎉'].includes(reaction.emoji.name) && user.bot === false;
     };
-    if (message.mentions.channels.size !== 0) {
-        let title = message.content.substring(message.content.search(' ') + 1).substring(message.content.substring(message.content.search(' ') + 1).search(' ') + 1);
-        //first_escape = first_escape.substring(first_escape.search(' ')+1);
-        message.mentions.channels.first().send(static_embed.GiveawayDrop(title, message.author))
-            .then(gmessage => {
-                gmessage.react('🎉');
-                gmessage.awaitReactions(filter, {max: 1, time: 60000, errors: ['time']})
-                    .then(collected => {
-                        const reaction = collected.first();
-                        const winner = collected.first().users.last();
-                        if (reaction.emoji.name === '🎉') {
-                            gmessage.clearReactions();
-                            gmessage.edit(static_embed.GiveawayWinner(title, message.author, '<@!' + winner.id + '>'));
-                        }
-                    }).catch(collected => {
-                    gmessage.clearReactions();
-                    gmessage.edit(static_embed.GiveawayInvalid(title, message.author));
-                });
-            });
-    } else {
-        message.channel.send('no channel menoted');
-    }
+	if (static_functions.has_user_role(message.member, "Discord Mod")) {
+		if (message.mentions.channels.size !== 0) {
+			if ((message.content.substring(message.content.search(' ') + 1).search(' ') + 1) !== 0) {
+				const prize = message.content.substring(message.content.search(' ') + 1).substring(message.content.substring(message.content.search(' ') + 1).search(' ') + 1);
+				message.mentions.channels.first().send(static_embed.GiveawayDrop(prize, message.author))
+					.then(gmessage => {
+						gmessage.react('🎉');
+						try {
+							gmessage.awaitReactions(filter, {max: 1, time: 60000, errors: ['time']})
+								.then(collected => {
+									const reaction = collected.first();
+									const winner = collected.first().users.last();
+									if (reaction.emoji.name === '🎉') {
+										gmessage.clearReactions();
+										gmessage.edit(static_embed.GiveawayWinner(prize, message.author, '<@!' + winner.id + '>'));
+									}
+								}).catch(collected => {
+									gmessage.clearReactions();
+									gmessage.edit(static_embed.GiveawayInvalid(prize, message.author));
+							});
+						} catch (e) {}
+					});
+			} else {
+				message.channel.send('no prize declared');
+			}
+		} else {
+         message.channel.send('no channel menoted');
+		}
+    } 
 }
