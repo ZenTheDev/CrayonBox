@@ -73,19 +73,20 @@ async function giveaway_drop(message, data, client) {
                                         gmessage.clearReactions();
                                         gmessage.edit(static_embed.GiveawayWinner(prize, message.author, '<@!' + winner.id + '>'));
                                         gmessage.channel.send('<@!' + winner.id + '>' + ' has won the giveaway prize ' + prize);
-                                        winner.send(`🎉 __**You are the the Giveaway Drop winner**__ 🎉\n *Our price:* \`${prize}\` \n Contact <@!${message.member.id}> to collect your price.`);
+                                        winner.send(`🎉 __**You are the the Giveaway Drop winner**__ 🎉\n *Your prize is:* \`${prize}\` \n Contact <@!${message.member.id}> to collect your prize.`);
                                     }
                                 }).catch(collected => {
                                     gmessage.clearReactions();
                                     gmessage.edit(static_embed.GiveawayInvalid(prize, message.author));
+                                    gmessage.channel.send(`Oh no! {prize} expired! {prize} can no longer be claimed. 😢`)
                             });
                         } catch (e) {}
                     });
             } else {
-                message.channel.send('no prize declared');
+                message.channel.send('I didn\'t see any prize.');
             }
         } else {
-         message.channel.send('no channel menoted');
+         message.channel.send('I didn\'t see any channel.');
         }
     } 
 }
