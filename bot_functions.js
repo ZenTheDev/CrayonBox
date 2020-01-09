@@ -73,12 +73,12 @@ async function giveaway_drop(message, data, client) {
                                         gmessage.clearReactions();
                                         gmessage.edit(static_embed.GiveawayWinner(prize, message.author, '<@!' + winner.id + '>'));
                                         gmessage.channel.send('<@!' + winner.id + '>' + ' has won the giveaway prize ' + prize);
-                                        winner.send(`🎉 __**You are the the Giveaway Drop winner**__ 🎉\n *Your prize is:* \`${prize}\` \n Contact <@!${message.member.id}> to collect your prize.`);
+                                        winner.send(`🎉 __**You are the the Giveaway Drop winner**__ 🎉\n*Your prize is:* \`${prize}\` \nContact <@!${message.member.id}> to collect your prize.`);
                                     }
                                 }).catch(collected => {
                                     gmessage.clearReactions();
                                     gmessage.edit(static_embed.GiveawayInvalid(prize, message.author));
-                                    gmessage.channel.send(`Oh no! {prize} expired! {prize} can no longer be claimed. 😢`)
+                                    gmessage.channel.send(`Oh no! ${prize} expired!\n${prize} can no longer be claimed. 😢`)
                             });
                         } catch (e) {}
                     });
