@@ -20,10 +20,11 @@ let jsonData = JSON.parse(fs.readFileSync('./data.json', 'utf8'));
 
 
 const jsonActions = {
-    0: bot_functions.test,
+    0: bot_functions.dev,
     1: bot_functions.acceptTrialMod,
-    2: bot_functions.feature_request,
-    3: bot_functions.giveaway_drop
+    2: bot_functions.feature,
+    3: bot_functions.giveaway_drop,
+    4: bot_functions.export_channel
 };
 const modules = {
     1: bot_modules.one_letter,
@@ -32,87 +33,16 @@ const modules = {
     4: bot_modules.no_discord_invites
 };
 
-async function dev() {
-
-    const anarchy = client.guilds.get("652458385161322496");
-    var orginal_invite = jsonData["652458385161322496"]["invite"];
-
-    var orginal_exist = false;
-    var invites = await anarchy.fetchInvites();
-    var counter = 0;
-
-    if (invites.size === 0) {
-        counter = invites.size;
-    } else {
-
-        invites.forEach(invite => {
-            if (counter !== invites.size) {
-                const invite_code = invite.code;
-                if (invite_code === orginal_invite) {
-                    orginal_exist = true;
-                    counter = invites.size;
-                } else {
-                    counter += 1;
-                }
-            }
-        });
-    }
-
-    while (counter !== invites.size) {
-    } // Wait until foreach is finish
-
-    if (!orginal_exist) {
-        let invite_channel = null;
-        let channel_counter = 0;
-        anarchy.channels.forEach(channel => {
-            if (channel_counter !== anarchy.channels.size) {
-                if (channel.type === "text") {
-                    invite_channel = channel;
-                    channel_counter = anarchy.channels.size
-                } else {
-                    channel_counter += 1;
-
-                }
-            }
-        });
-
-        while (channel_counter !== anarchy.channels.size) {
-        } // Wait until foreach is finish
-
-        if (invite_channel === null) {
-            invite_channel = await anarchy.createChannel("General", "text", false, "no text channel");
-        }
-        let newInvite = await invite_channel.createInvite({
-            maxUses: false, // After one use it will be void
-            unique: true, // That tells the bot not to use an existing invite so that this will be unique
-            maxAge: 0 // By default invites last 24 hours. If you want to change that, modify this (0 = lasts forever, time in seconds)
-        });
-
-        console.log("https://discord.gg/" + newInvite.code);
-
-        const Aserver = client.guilds.get("542073176729976842");
-        const announcements_channel = Aserver.channels.get("575362738365267978");
-
-        announcements_channel.send("https://discord.gg/" + newInvite.code);
-
-        jsonData[anarchy.id.toString()]["invite"] = newInvite.code;
-
-        fs.writeFileSync("./data.json", JSON.stringify(jsonData, null, 2));
-    } else {
-        // EVERYTHING OK
-    }
-}
-
 function sleep(milliseconds) {
     return new Promise(resolve => setTimeout(resolve, milliseconds));
 }
 
 client.once('ready', async () => {
     console.log('crayonbox-assist has started up successfully.');
-    while (1 === 1) {
+    /*while (1 === 1) {
         //dev();
         await sleep(10000);
-    }
+    }*/
 });
 
 client.on('guildUpdate', (oldGuild, newGuild) => {
@@ -144,9 +74,6 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
 
 client.on('message', (message) => {
 
-    /*if (message.content.toLowerCase() === "test") {
-        dev();
-    }*/
     let old_data = JSON.stringify(jsonData, null, 2);
 
     const member = message.member;
