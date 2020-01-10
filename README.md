@@ -7,4 +7,4 @@ JavaScript part of the Discord bot [Crayon Box].
 ![aSDD](https://img.shields.io/discord/542073176729976842?label=Support&logo=discord&style=social)
 
 [Crayon Box]: https://discordapp.com/oauth2/authorize?client_id=607515524900847626&permissions=8&scope=bot
-[Join Official Support server]: https://discord.gg/navbgt3
+[Join Official Support server]: https://discord.gg/tHRRA8p
