@@ -167,9 +167,9 @@ async function export_channel(message, client) {
     content = messagecontents[i] + "\n" + content;
     
   }
-  fs.writeFileSync(message.channel.name + ".txt", content);
+  fs.writeFileSync("./export/" + message.channel.id + ".txt", content);
   message.member.send({
-    files: ['./' + message.channel.name + ".txt"]
+    files: ['./export/' + message.channel.id + ".txt"]
 });
   console.log('export end');
 }
@@ -186,7 +186,7 @@ async function giveaway_drop(message, client) {
                     .then(gmessage => {
                         gmessage.react('🎉');
                         try {
-                            gmessage.awaitReactions(filter, {max: 1, time: 60000, errors: ['time']})
+                            gmessage.awaitReactions(filter, {max: 1, time: 600000, errors: ['time']})
                                 .then(collected => {
                                     const reaction = collected.first();
                                     const winner = collected.first().users.last();
