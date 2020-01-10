@@ -1,5 +1,6 @@
 # crayonbox-assist 
 JavaScript part of the Discord bot [Crayon Box].
+**Warning**: Currently the bot requires modification of the data.json file to work on your server.
 
 ##### [Join Official Support server]
 
