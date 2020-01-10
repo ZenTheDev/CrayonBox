@@ -2,6 +2,44 @@
   "652458385161322496": {
     "invite": "NPv25A"
   },
+  "665195766247325708": {
+    "invite": "4BdcNCQ",
+    "prefix": "cb.",
+    "specialchannels": ["665199809447067648"],
+    "verificationlog": "665209520561192970",
+    "665199809447067648": {
+      "use":2,
+      "nodelete": ["260038096681304074"]
+    },
+    "verification": {
+      "665199809447067648": ["accept"],
+      "role": {
+        "665199809447067648": "665201525098020871"
+      }
+    },
+    "commands": {
+      "feature": {
+        "action": 2,
+        "ignoredchannels": []
+      },
+      "accept": {
+        "action": 1,
+        "ignoredchannels": []
+      },
+      "dev": {
+        "action": 0,
+        "ignoredchannels": []
+      },
+      "dropgiveaway": {
+        "action": 3,
+        "ignoredchannels": []
+      },
+      "export":{
+        "action":4,
+        "ignoredchannels": []
+      }
+    }
+  },
   "542073176729976842": {
     "prefix": "c!",
     "invite": "cNzT4Nz",
@@ -67,7 +105,7 @@
     },
     "invite": "4BdcNCQ",
     "specialchannels": ["664732845759266836"],
-    "prefix": "cb!",
+    "prefix": "cb.",
     "verificationlog": "647384954635943936",
     "verification": {
       "647384954635943936": [

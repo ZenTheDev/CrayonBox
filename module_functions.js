@@ -27,7 +27,11 @@ async function verification(message, data, client){
 
     if (!data[guildID][channelID]["nodelete"].includes(memberID)) {
         if (data[guildID]["verification"][channelID].includes(content)) {
-            await member.removeRole(data[guildID]["verification"]["role"][channelID], 'Correct message');
+            if (guildID === '665195766247325708') {
+              await member.addRole(data[guildID]["verification"]["role"][channelID], 'Correct message');
+            } else {
+              await member.removeRole(data[guildID]["verification"]["role"][channelID], 'Correct message');
+            }
             client.channels.get(data[guildID]["verificationlog"]).send(`[cba verification] <@${member.id}> has verified ✨✨`);
         } else {
             await static_functions.temp_message(static_embed.WrongVerifyMessage(member), channel, 7000);

@@ -66,19 +66,20 @@ async function feature(message, client) {
 }
 
 async function requestFeature(message, params, client) {
-  client.channels.get(`644544776753905670`).send('processing ... ').then(frmessage => {
+  client.channels.get('665213985863499816').send('processing ... ').then(frmessage => {
     // request message
     const feature_id = frmessage.id;
     message.channel.send(static_embed.FeatureRequestResponse(message.author, params, feature_id.toString(), message.author, 'Requested')).then(fmessage => {
       // response message
       const request_id = fmessage.id;
       frmessage.edit(static_embed.FeatureRequest(message.author, params, feature_id.toString(), request_id.toString(), message.channel.id.toString(), 'Requested'));
+      message.delete();
     });
   });
 }
 
 async function acceptFeature(message, params, client) {
-  message.guild.channels.get('644544776753905670').fetchMessage(params).then(emessage => {
+  message.guild.channels.get('665213985863499816').fetchMessage(params).then(emessage => {
     const embed = emessage.embeds[0];
     
     const feature_id = embed.fields[1].value;
@@ -91,12 +92,13 @@ async function acceptFeature(message, params, client) {
     client.channels.get(channel_id).fetchMessage(request_id).then(rmessage => {
       const rembed = rmessage.embeds[0];
       rmessage.edit(static_embed.FeatureRequestResponse(request_user, rembed.fields[0].value, feature_id, message.author, 'Accepted'));
+      message.delete();
     });
   });
 }
 
 async function rejectFeature(message, params, client) {  
-  message.guild.channels.get('644544776753905670').fetchMessage(params).then(emessage => {
+  message.guild.channels.get('665213985863499816').fetchMessage(params).then(emessage => {
     const embed = emessage.embeds[0];
     
     const feature_id = embed.fields[1].value;
@@ -109,12 +111,13 @@ async function rejectFeature(message, params, client) {
     client.channels.get(channel_id).fetchMessage(request_id).then(rmessage => {
       const rembed = rmessage.embeds[0];
       rmessage.edit(static_embed.FeatureRequestResponse(request_user, rembed.fields[0].value, feature_id, message.author, 'Rejected'));
+      message.delete();
     });
   });
 }
 
 async function closeFeature(message, params, client) {  
-  message.guild.channels.get('644544776753905670').fetchMessage(params).then(emessage => {
+  message.guild.channels.get('665213985863499816').fetchMessage(params).then(emessage => {
     const embed = emessage.embeds[0];
     
     const feature_id = embed.fields[1].value;
@@ -127,6 +130,7 @@ async function closeFeature(message, params, client) {
     client.channels.get(channel_id).fetchMessage(request_id).then(rmessage => {
       const rembed = rmessage.embeds[0];
       rmessage.edit(static_embed.FeatureRequestResponse(request_user, rembed.fields[0].value, feature_id, message.author, 'Closed'));
+      message.delete();
     });
   });
 }
@@ -143,7 +147,6 @@ async function save_delete(message) {
 }
 
 async function export_channel(message, client) {
-  console.log('export start');
   var stream = undefined;
   var lines = undefined;
   let channel = message.channel;// <-- your pre-filled channel variable
@@ -171,7 +174,6 @@ async function export_channel(message, client) {
   message.member.send({
     files: ['./export/' + message.channel.id + ".txt"]
 });
-  console.log('export end');
 }
 
 async function giveaway_drop(message, client) {
