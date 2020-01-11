@@ -5,14 +5,20 @@
   "665195766247325708": {
     "invite": "4BdcNCQ",
     "prefix": "cb.",
-    "specialchannels": ["665199809447067648"],
+    "specialchannels": [
+      "665199809447067648"
+    ],
     "verificationlog": "665209520561192970",
     "665199809447067648": {
-      "use":2,
-      "nodelete": ["260038096681304074"]
+      "use": 2,
+      "nodelete": [
+        "260038096681304074"
+      ]
     },
     "verification": {
-      "665199809447067648": ["accept"],
+      "665199809447067648": [
+        "accept"
+      ],
       "role": {
         "665199809447067648": "665201525098020871"
       }
@@ -34,8 +40,8 @@
         "action": 3,
         "ignoredchannels": []
       },
-      "export":{
-        "action":4,
+      "export": {
+        "action": 4,
         "ignoredchannels": []
       }
     }
@@ -64,8 +70,8 @@
         "action": 3,
         "ignoredchannels": []
       },
-      "export":{
-        "action":4,
+      "export": {
+        "action": 4,
         "ignoredchannels": []
       }
     },
@@ -97,14 +103,16 @@
     }
   },
   "386152123760640030": {
-	"664732845759266836": {
+    "664732845759266836": {
       "use": 1,
       "nodelete": [],
       "ignore": [],
       "forbidden": []
     },
     "invite": "4BdcNCQ",
-    "specialchannels": ["664732845759266836"],
+    "specialchannels": [
+      "664732845759266836"
+    ],
     "prefix": "cb.",
     "verificationlog": "647384954635943936",
     "verification": {
@@ -133,8 +141,8 @@
         "action": 3,
         "ignoredchannels": []
       },
-      "export":{
-        "action":4,
+      "export": {
+        "action": 4,
         "ignoredchannels": []
       }
     }

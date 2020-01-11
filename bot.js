@@ -56,20 +56,20 @@ client.on('guildUpdate', (oldGuild, newGuild) => {
 
 client.on('messageUpdate', (oldMessage, newMessage) => {
 
-	if (!oldMessage.author.bot) {
-		const channel = oldMessage.channel;
-		const channelID = oldMessage.channel.id.toString();
-		if (channel.type !== "dm") {
-			try {
-				const guildID = oldMessage.guild.id.toString();
-				if (jsonData[guildID]["specialchannels"].includes(channelID)) {
-					modules[jsonData[guildID][channelID]["use"].toString()](newMessage, jsonData, client);
-				}
-			} catch (e) {
+    if (!oldMessage.author.bot) {
+        const channel = oldMessage.channel;
+        const channelID = oldMessage.channel.id.toString();
+        if (channel.type !== "dm") {
+            try {
+                const guildID = oldMessage.guild.id.toString();
+                if (jsonData[guildID]["specialchannels"].includes(channelID)) {
+                    modules[jsonData[guildID][channelID]["use"].toString()](newMessage, jsonData, client);
+                }
+            } catch (e) {
 
             }
         }
-	}
+    }
 });
 
 client.on('message', (message) => {
@@ -164,10 +164,10 @@ client.on('message', (message) => {
                     file: "https://i.imgur.com/IDrWOXx.png" // Or replace with FileOptions object
                 });
             } else if (message.channel.id === "665351863847092245") {
-		if (message.content.length > 10) {
-			message.delete()	
-		}
-	    }
+                if (message.content.length > 10) {
+                    message.delete()
+                }
+            }
         }
     }
     if (old_data !== JSON.stringify(jsonData, null, 2)) {

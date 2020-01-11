@@ -7,19 +7,19 @@ const Discord = require('discord.js');
 
 module.exports = {
     NoDiscordInvite,
-  
+
     WelcomeMessage,
-  
+
     NotAllowedCharacter,
-  
+
     WrongVerifyMessage,
-  
+
     TrialModAddWarn,
     TrialModAccept,
-  
+
     FeatureRequest,
     FeatureRequestResponse,
-    
+
     GiveawayDrop,
     GiveawayWinner,
     GiveawayInvalid
@@ -100,16 +100,16 @@ function WelcomeMessage() {
 }
 
 function FeatureRequest(requested_by, requested_feature, featureID, requestID, channelID, status) {
-  let color = undefined;
-  if (status === 'Requested') {
-    color = featuremessagecolor;
-  } else if (status === 'Accepted') {
-    color = featureacceptcolor;
-  } else if (status === 'Rejected') {
-    color = featurerejectcolor;
-  } else if (status === 'Closed') {
-    color = featureclosecolor;
-  }
+    let color = undefined;
+    if (status === 'Requested') {
+        color = featuremessagecolor;
+    } else if (status === 'Accepted') {
+        color = featureacceptcolor;
+    } else if (status === 'Rejected') {
+        color = featurerejectcolor;
+    } else if (status === 'Closed') {
+        color = featureclosecolor;
+    }
     return new Discord.RichEmbed()
         .setColor(color)
         .setTitle('Feature ' + status)
@@ -124,16 +124,16 @@ function FeatureRequest(requested_by, requested_feature, featureID, requestID, c
 }
 
 function FeatureRequestResponse(requested_by, requested_feature, featureID, action_user, status) {
-  let color = undefined;
-  if (status === 'Requested') {
-    color = featuremessagecolor;
-  } else if (status === 'Accepted') {
-    color = featureacceptcolor;
-  } else if (status === 'Rejected') {
-    color = featurerejectcolor;
-  } else if (status === 'Closed') {
-    color = featureclosecolor;
-  }
+    let color = undefined;
+    if (status === 'Requested') {
+        color = featuremessagecolor;
+    } else if (status === 'Accepted') {
+        color = featureacceptcolor;
+    } else if (status === 'Rejected') {
+        color = featurerejectcolor;
+    } else if (status === 'Closed') {
+        color = featureclosecolor;
+    }
     return new Discord.RichEmbed()
         .setColor(color)
         .setTitle('Feature ' + status)
