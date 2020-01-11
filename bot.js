@@ -163,7 +163,11 @@ client.on('message', (message) => {
                 channel.send("", {
                     file: "https://i.imgur.com/IDrWOXx.png" // Or replace with FileOptions object
                 });
-            }
+            } else if (message.channel.id === "665351863847092245") {
+		if (message.content.length > 10) {
+			message.delete()	
+		}
+	    }
         }
     }
     if (old_data !== JSON.stringify(jsonData, null, 2)) {
