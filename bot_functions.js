@@ -177,8 +177,10 @@ async function export_channel(message, client) {
 }
 
 async function giveaway_drop(message, client) {
+    const errorEmoji = client.emojis.get("665989257197912115");
+    const giftEmoji = client.emojis.get("665989945868943380");
     const filter = (reaction, user) => {
-        return ['665990890438918174'].includes(reaction.emoji.name) && user.bot === false;
+        return ["665990890438918174"].includes(reaction.emoji.id) && user.bot === false;
     };
     if (message.member.permissions.has('ADMINISTRATOR')) {
         if (message.mentions.channels.size !== 0) {
@@ -197,7 +199,7 @@ async function giveaway_drop(message, client) {
                                         gmessage.clearReactions();
                                         gmessage.edit(static_embed.GiveawayWinner(prize, message.author, '<@!' + winner.id + '>'));
                                         gmessage.channel.send('<@!' + winner.id + '>' + ' has won the giveaway prize ' + prize);
-                                        winner.send(`<:winner:665989945868943380> __**You won the giveaway drop!**__ <:winner:665989945868943380>\n*Your prize is:* \`${prize}\` \nContact <@!${message.member.id}> to collect your prize.`);
+                                        winner.send(`${giftEmoji.toString()} __**You won the giveaway drop!**__ ${giftEmoji.toString()}\n*Your prize is:* \`${prize}\` \nContact <@!${message.member.id}> to collect your prize.`);
                                         if (prize.toLowerCase().includes("steam")) {
                                             winner.send("**EXTRA INFO**\nIt looks like you won a Steam game code! Here's how to claim it: https://gyazo.com/e2ab5637224bece69f65328fc58409c5");
                                         }
@@ -211,12 +213,12 @@ async function giveaway_drop(message, client) {
                         }
                     });
             } else {
-                message.channel.send('<error:665989257197912115> **No prize**\nI can\'t really know what I\'m supposed to drop if you don\'t tell me... I think you forgot to mention what you want to drop.');
+                message.channel.send(`${errorEmoji.toString()} **No prize**\nI can\'t really know what I\'m supposed to drop if you don\'t tell me... I think you forgot to mention what you want to drop.`);
             }
         } else {
-         message.channel.send('<:error:665989257197912115> **Invalid/no channel**\nYes, that\'s a cool drop you got there, but where am I supposed to drop? I think you forgot to mention the channel...');
+         message.channel.send(`${errorEmoji.toString()} **Invalid/no channel**\nYes, that\'s a cool drop you got there, but where am I supposed to drop? I think you forgot to mention the channel...`);
         }
     } else {
-        message.channel.send('<:error:665989257197912115> Sorry to say but uh, you need administrator permissions on this server to make drops.')   
+        message.channel.send(`${errorEmoji.toString()} Sorry to say but uh, you need administrator permissions on this server to make drops.`)   
     }
 }
