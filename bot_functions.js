@@ -189,9 +189,8 @@ async function giveaway_drop(message, client) {
                 const prize = message.content.substring(message.content.search(' ') + 1).substring(message.content.substring(message.content.search(' ') + 1).search(' ') + 1);
                 message.channel.send(`${dropEmoji.toString()} **Dropping now...**\nSure! Dropping ${prize} now, **${message.member.user.tag}**...`)
                 message.mentions.channels.first().send(static_embed.GiveawayDrop(prize, message.author))
-                    .then(gmessage, message => {
+                    .then(gmessage => {
                         gmessage.react('665990890438918174');
-                        message.channel.send(`${giftEmoji.toString()} **Dropped!**\n${prize} was dropped.`)
                         try {
                             gmessage.awaitReactions(filter, {max: 1, time: 600000, errors: ['time']})
                                 .then(collected => {
