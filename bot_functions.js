@@ -199,7 +199,7 @@ async function giveaway_drop(message, client) {
                                     if (reaction.emoji.id === '665990890438918174') {
                                         gmessage.clearReactions();
                                         gmessage.edit(static_embed.GiveawayWinner(prize, message.author, '<@!' + winner.id + '>'));
-                                        gmessage.channel.send(`${giftEmoji.toString()} **Winner!**\n<@!' + winner.id + '>' + ' has won the giveaway prize ' + prize`);
+                                        gmessage.channel.send(`${giftEmoji.toString()} **Winner!**\n<@!${winner.id}> won ${prize}!`);
                                         winner.send(`${giftEmoji.toString()} __**You won the giveaway drop!**__ ${giftEmoji.toString()}\n*Your prize is:* \`${prize}\` \nContact <@!${message.member.id}> to collect your prize.`);
                                         if (prize.toLowerCase().includes("steam")) {
                                             winner.send("**EXTRA INFO**\nIt looks like you won a Steam game code! Here's how to claim it: https://gyazo.com/e2ab5637224bece69f65328fc58409c5");
