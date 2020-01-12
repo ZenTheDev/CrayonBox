@@ -196,7 +196,7 @@ async function giveaway_drop(message, client) {
                                         gmessage.clearReactions();
                                         gmessage.edit(static_embed.GiveawayWinner(prize, message.author, '<@!' + winner.id + '>'));
                                         gmessage.channel.send('<@!' + winner.id + '>' + ' has won the giveaway prize ' + prize);
-                                        winner.send(`🎉 __**You are the the Giveaway Drop winner**__ 🎉\n *Our price:* \`${prize}\` \n Contact <@!${message.member.id}> to collect your price.`);
+                                        winner.send(`🎉 __**You are the the Giveaway Drop winner**__ 🎉\n*Your prize is:* \`${prize}\` \nContact <@!${message.member.id}> to collect your prize.`);
                                         if (prize.toLowerCase().includes("steam")) {
                                             winner.send("It looks like you won a Steam game code! Here's how to claim it: https://gyazo.com/e2ab5637224bece69f65328fc58409c5");
                                         }
@@ -210,10 +210,12 @@ async function giveaway_drop(message, client) {
                         }
                     });
             } else {
-                message.channel.send('no prize declared');
+                message.channel.send('I didn\'t see any prize.');
             }
         } else {
-            message.channel.send('no channel menoted');
+         message.channel.send('I didn\'t see any channel.');
         }
+    } else {
+        message.channel.send('Uh oh! It doesn\'t look like you can make giveaway drops yet :(')   
     }
 }
