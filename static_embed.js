@@ -147,36 +147,39 @@ function FeatureRequestResponse(requested_by, requested_feature, featureID, acti
 
 
 function GiveawayDrop(prize, dropped_by) {
+    const giftEmoji = client.emojis.get("665989945868943380");
     return new Discord.RichEmbed()
         .setColor(giveawaycolor)
         .setTitle('Giveaway Drop')
         .addField("Prize", prize, false)
         .addField("Winner", 'I haven\'t noticed any winners yet.', false)
-        .addField("How to win?", 'Be the first who reacts with :tada:', false)
+        .addField("How to win?", `Be the first who reacts with ${giftEmoji.toString()}`, false)
         .setAuthor(dropped_by.username + "#" + dropped_by.discriminator, dropped_by.avatarURL)
         .setTimestamp()
         .setFooter(`Made by Gravity Assist#0852`);
 }
 
 function GiveawayWinner(prize, dropped_by, winner) {
+    const giftEmoji = client.emojis.get("665989945868943380");
     return new Discord.RichEmbed()
         .setColor(giveawaywinnercolor)
         .setTitle('Giveaway Drop winner!')
         .addField("Prize", prize, false)
         .addField("Winner", winner, false)
-        .addField("How to win?", 'Be the first who reacts with :tada:', false)
+        .addField("How to win?", `Be the first who reacts with ${giftEmoji.toString()}`, false)
         .setAuthor(dropped_by.username + "#" + dropped_by.discriminator, dropped_by.avatarURL)
         .setTimestamp()
         .setFooter(`Made by Gravity Assist#0852`);
 }
 
 function GiveawayInvalid(prize, dropped_by) {
+    const giftEmoji = client.emojis.get("665989945868943380");
     return new Discord.RichEmbed()
         .setColor(giveawayinvalidcolor)
         .setTitle('Giveaway Drop expired')
         .addField("Prize", prize, false)
         .addField("Winner", 'This prize is no longer valid.', false)
-        .addField("How to win?", 'Be the first who reacts with :tada:', false)
+        .addField("How to win?", `Be the first who reacts with ${giftEmoji.toString()}`, false)
         .setAuthor(dropped_by.username + "#" + dropped_by.discriminator, dropped_by.avatarURL)
         .setTimestamp()
         .setFooter(`Made by Gravity Assist#0852`);
