@@ -186,7 +186,7 @@ async function giveaway_drop(message, client) {
         if (message.mentions.channels.size !== 0) {
             if ((message.content.substring(message.content.search(' ') + 1).search(' ') + 1) !== 0) {
                 const prize = message.content.substring(message.content.search(' ') + 1).substring(message.content.substring(message.content.search(' ') + 1).search(' ') + 1);
-                message.channel.send(`Sure! Dropping ${prize} now, ${message.member.user.tag}...`)
+                message.channel.send(`Sure! Dropping ${prize} now, **${message.member.user.tag}**...`)
                 message.mentions.channels.first().send(static_embed.GiveawayDrop(prize, message.author))
                     .then(gmessage => {
                         gmessage.react('665990890438918174');
