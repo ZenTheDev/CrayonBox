@@ -179,6 +179,7 @@ async function export_channel(message, client) {
 async function giveaway_drop(message, client) {
     const errorEmoji = client.emojis.get("665989257197912115");
     const giftEmoji = client.emojis.get("665989945868943380");
+    const dropEmoji = client.emojis.get("665990890438918174");
     const filter = (reaction, user) => {
         return ["665990890438918174"].includes(reaction.emoji.id) && user.bot === false;
     };
@@ -186,16 +187,17 @@ async function giveaway_drop(message, client) {
         if (message.mentions.channels.size !== 0) {
             if ((message.content.substring(message.content.search(' ') + 1).search(' ') + 1) !== 0) {
                 const prize = message.content.substring(message.content.search(' ') + 1).substring(message.content.substring(message.content.search(' ') + 1).search(' ') + 1);
-                message.channel.send(`Sure! Dropping ${prize} now, **${message.member.user.tag}**...`)
+                message.channel.send(`${dropEmoji.toString()} **Dropping now...**\nSure! Dropping ${prize} now, **${message.member.user.tag}**...`)
                 message.mentions.channels.first().send(static_embed.GiveawayDrop(prize, message.author))
-                    .then(gmessage => {
+                    .then(gmessage, message => {
                         gmessage.react('665990890438918174');
+                        message.channel.send(`${giftEmoji.toString()} **Dropped!**\n${prize} was dropped.`)
                         try {
                             gmessage.awaitReactions(filter, {max: 1, time: 600000, errors: ['time']})
                                 .then(collected => {
                                     const reaction = collected.first();
                                     const winner = collected.first().users.last();
-                                    if (reaction.emoji.name === 'dropreact') {
+                                    if (reaction.emoji.id === '665990890438918174') {
                                         gmessage.clearReactions();
                                         gmessage.edit(static_embed.GiveawayWinner(prize, message.author, '<@!' + winner.id + '>'));
                                         gmessage.channel.send('<@!' + winner.id + '>' + ' has won the giveaway prize ' + prize);
