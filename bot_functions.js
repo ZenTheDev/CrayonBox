@@ -197,9 +197,9 @@ async function giveaway_drop(message, client) {
                                         gmessage.clearReactions();
                                         gmessage.edit(static_embed.GiveawayWinner(prize, message.author, '<@!' + winner.id + '>'));
                                         gmessage.channel.send('<@!' + winner.id + '>' + ' has won the giveaway prize ' + prize);
-                                        winner.send(`🎉 __**You are the the Giveaway Drop winner**__ 🎉\n*Your prize is:* \`${prize}\` \nContact <@!${message.member.id}> to collect your prize.`);
+                                        winner.send(`🎉 __**You won the giveaway drop!**__ 🎉\n*Your prize is:* \`${prize}\` \nContact <@!${message.member.id}> to collect your prize.`);
                                         if (prize.toLowerCase().includes("steam")) {
-                                            winner.send("It looks like you won a Steam game code! Here's how to claim it: https://gyazo.com/e2ab5637224bece69f65328fc58409c5");
+                                            winner.send("**EXTRA INFO**\nIt looks like you won a Steam game code! Here's how to claim it: https://gyazo.com/e2ab5637224bece69f65328fc58409c5");
                                         }
                                     }
                                 }).catch(collected => {
