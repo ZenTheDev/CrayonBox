@@ -193,7 +193,7 @@ async function giveaway_drop(message, client) {
                                 .then(collected => {
                                     const reaction = collected.first();
                                     const winner = collected.first().users.last();
-                                    if (reaction.emoji.id === '665990890438918174') {
+                                    if (reaction.emoji.name === 'dropreact') {
                                         gmessage.clearReactions();
                                         gmessage.edit(static_embed.GiveawayWinner(prize, message.author, '<@!' + winner.id + '>'));
                                         gmessage.channel.send('<@!' + winner.id + '>' + ' has won the giveaway prize ' + prize);
