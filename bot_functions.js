@@ -178,7 +178,7 @@ async function export_channel(message, client) {
 
 async function giveaway_drop(message, client) {
     const filter = (reaction, user) => {
-        return ['🎉'].includes(reaction.emoji.name) && user.bot === false;
+        return ['665990890438918174'].includes(reaction.emoji.name) && user.bot === false;
     };
     if (message.member.permissions.has('ADMINISTRATOR')) {
         if (message.mentions.channels.size !== 0) {
@@ -187,17 +187,17 @@ async function giveaway_drop(message, client) {
                 message.channel.send(`Sure! Dropping ${prize} now, ${message.member.user.tag}...`)
                 message.mentions.channels.first().send(static_embed.GiveawayDrop(prize, message.author))
                     .then(gmessage => {
-                        gmessage.react('🎉');
+                        gmessage.react('665990890438918174');
                         try {
                             gmessage.awaitReactions(filter, {max: 1, time: 600000, errors: ['time']})
                                 .then(collected => {
                                     const reaction = collected.first();
                                     const winner = collected.first().users.last();
-                                    if (reaction.emoji.name === '🎉') {
+                                    if (reaction.emoji.id === '665990890438918174') {
                                         gmessage.clearReactions();
                                         gmessage.edit(static_embed.GiveawayWinner(prize, message.author, '<@!' + winner.id + '>'));
                                         gmessage.channel.send('<@!' + winner.id + '>' + ' has won the giveaway prize ' + prize);
-                                        winner.send(`🎉 __**You won the giveaway drop!**__ 🎉\n*Your prize is:* \`${prize}\` \nContact <@!${message.member.id}> to collect your prize.`);
+                                        winner.send(`<:winner:665989945868943380> __**You won the giveaway drop!**__ <:winner:665989945868943380>\n*Your prize is:* \`${prize}\` \nContact <@!${message.member.id}> to collect your prize.`);
                                         if (prize.toLowerCase().includes("steam")) {
                                             winner.send("**EXTRA INFO**\nIt looks like you won a Steam game code! Here's how to claim it: https://gyazo.com/e2ab5637224bece69f65328fc58409c5");
                                         }
@@ -211,12 +211,12 @@ async function giveaway_drop(message, client) {
                         }
                     });
             } else {
-                message.channel.send('I can\'t really know what I\'m supposed to drop if you don\'t tell me... I think you forgot to mention what you want to drop.');
+                message.channel.send('<error:665989257197912115> **No prize**\nI can\'t really know what I\'m supposed to drop if you don\'t tell me... I think you forgot to mention what you want to drop.');
             }
         } else {
-         message.channel.send('Yes, that\'s a cool drop you got there, but where am I supposed to drop? I think you forgot to mention the channel...');
+         message.channel.send('<:error:665989257197912115> **Invalid/no channel**\nYes, that\'s a cool drop you got there, but where am I supposed to drop? I think you forgot to mention the channel...');
         }
     } else {
-        message.channel.send('Sorry to say but uh, you need administrator permissions on this server to make drops.')   
+        message.channel.send('<:error:665989257197912115> Sorry to say but uh, you need administrator permissions on this server to make drops.')   
     }
 }
