@@ -210,12 +210,12 @@ async function giveaway_drop(message, client) {
                         }
                     });
             } else {
-                message.channel.send('I didn\'t see any prize.');
+                message.channel.send('I can\'t really know what I\'m supposed to drop if you don\'t tell me... I think you forgot to mention what you want to drop.');
             }
         } else {
-         message.channel.send('I didn\'t see any channel.');
+         message.channel.send('Yes, that\'s a cool drop you got there, but where am I supposed to drop? I think you forgot to mention the channel...');
         }
     } else {
-        message.channel.send('Uh oh! It doesn\'t look like you can make giveaway drops yet :(')   
+        message.channel.send('Sorry to say but uh, you need administrator permissions on this server to make drops.')   
     }
 }
