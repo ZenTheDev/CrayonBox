@@ -170,10 +170,6 @@ async function is_higher_then_me(message, client) {
 async function dev(message, client) {
   giveaway_drop(message, client);
     //is_higher_then_me(message, client);
-
-// accept
-async function dev(message, client) {
-    feature(message, client);
 }
 
 async function save_delete(message) {
