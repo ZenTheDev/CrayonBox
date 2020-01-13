@@ -170,6 +170,10 @@ async function is_higher_then_me(message, client) {
 async function dev(message, client) {
   giveaway_drop(message, client);
     //is_higher_then_me(message, client);
+
+// accept
+async function dev(message, client) {
+    feature(message, client);
 }
 
 async function save_delete(message) {
@@ -213,6 +217,7 @@ async function giveaway_drop(message, client) {
     const filter = (reaction, user) => {
         return ["665990890438918174"].includes(reaction.emoji.id) && user.bot === false;
     };
+
     if (message.member.permissions.has('ADMINISTRATOR') == true || is_higher_then_me(message, client)) {
         if (message.mentions.channels.size !== 0) {
             if ((message.content.substring(message.content.search(' ') + 1).search(' ') + 1) !== 0) {
