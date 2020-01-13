@@ -1,37 +1,11 @@
-Welcome to Glitch
-=================
+# crayonbox-assist 
+JavaScript part of the Discord bot [Crayon Box].
 
-Click `Show` in the header to see your app live. Updates to your code will instantly deploy and update live.
+**Warning**: Currently the bot requires modification of the data.json file to work on your server.
 
-**Glitch** is the friendly community where you'll build the app of your dreams. Glitch lets you instantly create, remix, edit, and host an app, bot or site, and you can invite collaborators or helpers to simultaneously edit code with you.
+##### [Join Official Support server]
 
-Find out more [about Glitch](https://glitch.com/about).
+![aSDD](https://img.shields.io/discord/542073176729976842?label=Support&logo=discord&style=social)
 
-
-Your Project
-------------
-
-### ← README.md
-
-That's this file, where you can tell people what your cool website does and how you built it.
-
-### ← index.html
-
-Where you'll write the content of your website. 
-
-### ← style.css
-
-CSS files add styling rules to your content.
-
-### ← script.js
-
-If you're feeling fancy you can add interactivity to your site with JavaScript.
-
-### ← assets
-
-Drag in `assets`, like images or music, to add them to your project
-
-Made by [Glitch](https://glitch.com/)
--------------------
-
-\ ゜o゜)ノ
+[Crayon Box]: https://discordapp.com/oauth2/authorize?client_id=607515524900847626&permissions=8&scope=bot
+[Join Official Support server]: https://discord.gg/tHRRA8p

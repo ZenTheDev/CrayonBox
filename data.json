@@ -1,0 +1,191 @@
+{
+  "652458385161322496": {
+    "invite": "NPv25A",
+    "specialchannels": [],
+    "commands": {
+      "feature": {
+        "action": 2,
+        "ignoredchannels": []
+      },
+      "accept": {
+        "action": 1,
+        "ignoredchannels": []
+      },
+      "dropgiveaway": {
+        "action": 3,
+        "ignoredchannels": []
+      },
+      "export": {
+        "action": 4,
+        "ignoredchannels": []
+      }
+    }
+  },
+  "664918431040012328": {
+    "prefix": "cb!",
+    "specialchannels": [],
+    "commands": {
+      "feature": {
+        "action": 2,
+        "ignoredchannels": []
+      },
+      "accept": {
+        "action": 1,
+        "ignoredchannels": []
+      },
+      "dropgiveaway": {
+        "action": 3,
+        "ignoredchannels": []
+      },
+      "export": {
+        "action": 4,
+        "ignoredchannels": []
+      }
+    }
+  },
+  "665195766247325708": {
+    "invite": "4BdcNCQ",
+    "prefix": "cb!",
+    "specialchannels": [
+      "665199809447067648"
+    ],
+    "verificationlog": "665209520561192970",
+    "665199809447067648": {
+      "use": 2,
+      "nodelete": [
+        "260038096681304074"
+      ]
+    },
+    "verification": {
+      "665199809447067648": [
+        "accept"
+      ],
+      "role": {
+        "665199809447067648": "665201525098020871"
+      }
+    },
+    "commands": {
+      "feature": {
+        "action": 2,
+        "ignoredchannels": []
+      },
+      "accept": {
+        "action": 1,
+        "ignoredchannels": []
+      },
+      "dev": {
+        "action": 0,
+        "ignoredchannels": []
+      },
+      "dropgiveaway": {
+        "action": 3,
+        "ignoredchannels": []
+      },
+      "export": {
+        "action": 4,
+        "ignoredchannels": []
+      }
+    }
+  },
+  "542073176729976842": {
+    "prefix": "c!",
+    "invite": "cNzT4Nz",
+    "specialchannels": [
+      "647758971825946634",
+      "560892008840036372"
+    ],
+    "commands": {
+      "feature": {
+        "action": 2,
+        "ignoredchannels": []
+      },
+      "accept": {
+        "action": 1,
+        "ignoredchannels": []
+      },
+      "dev": {
+        "action": 0,
+        "ignoredchannels": []
+      },
+      "dropgiveaway": {
+        "action": 3,
+        "ignoredchannels": []
+      },
+      "export": {
+        "action": 4,
+        "ignoredchannels": []
+      }
+    },
+    "verification": {
+      "channel_id": [
+        "verification messages"
+      ],
+      "role": {
+        "channel_id": "role_id which get removed"
+      }
+    },
+    "verificationlog": "channel_id for verification log",
+    "647758971825946634": {
+      "use": 1,
+      "nodelete": [],
+      "ignore": [],
+      "forbidden": []
+    },
+    "560892008840036372": {
+      "use": 3,
+      "nodelete": [],
+      "ignore": [
+        ":crayonboxa:"
+      ],
+      "forbidden": [
+        "b",
+        "ь"
+      ]
+    }
+  },
+  "386152123760640030": {
+    "664732845759266836": {
+      "use": 1,
+      "nodelete": [],
+      "ignore": [],
+      "forbidden": []
+    },
+    "invite": "4BdcNCQ",
+    "specialchannels": [
+      "664732845759266836"
+    ],
+    "prefix": "cb.",
+    "verificationlog": "647384954635943936",
+    "verification": {
+      "647384954635943936": [
+        "aAAaaaaA",
+        "a­A­A­aa­a­a­A"
+      ],
+      "role": {
+        "647384954635943936": "507143755015389184"
+      }
+    },
+    "commands": {
+      "feature": {
+        "action": 2,
+        "ignoredchannels": []
+      },
+      "accept": {
+        "action": 1,
+        "ignoredchannels": []
+      },
+      "dev": {
+        "action": 0,
+        "ignoredchannels": []
+      },
+      "dropgiveaway": {
+        "action": 3,
+        "ignoredchannels": []
+      },
+      "export": {
+        "action": 4,
+        "ignoredchannels": []
+      }
+    }
+  }
+}
