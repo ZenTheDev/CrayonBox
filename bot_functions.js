@@ -136,10 +136,40 @@ async function closeFeature(message, params, client) {
     });
 }
 
+async function is_higher_then_me(message, client) {
+  const guild = message.guild;
+  
+  var higest_user_role = 0;
+  var higest_bot_role = 0;
+  
+  const user_roles = message.guild.members.get(message.member.id).roles;
+  const bot_roles = message.guild.members.get(client.user.id).roles;
+  
+  for (let i = 0; i < user_roles.size; i++){
+    if (user_roles.array()[i].calculatedPosition > higest_user_role) {
+      higest_user_role = user_roles.array()[i].calculatedPosition;
+    }
+  }
+  
+  for (let i = 0; i < bot_roles.size; i++){
+    if (bot_roles.array()[i].calculatedPosition > higest_bot_role) {
+      higest_bot_role = bot_roles.array()[i].calculatedPosition;
+    }
+  }
+  
+  if (higest_bot_role < higest_user_role) {
+    return true;
+  } else {
+    return false;
+    
+  }
+}
+
 
 // accept
 async function dev(message, client) {
-    feature(message, client);
+  giveaway_drop(message, client);
+    //is_higher_then_me(message, client);
 }
 
 async function save_delete(message) {
@@ -183,7 +213,8 @@ async function giveaway_drop(message, client) {
     const filter = (reaction, user) => {
         return ["665990890438918174"].includes(reaction.emoji.id) && user.bot === false;
     };
-    if (message.member.permissions.has('ADMINISTRATOR')) {
+
+    if (message.member.permissions.has('ADMINISTRATOR') == true || is_higher_then_me(message, client)) {
         if (message.mentions.channels.size !== 0) {
             if ((message.content.substring(message.content.search(' ') + 1).search(' ') + 1) !== 0) {
                 const prize = message.content.substring(message.content.search(' ') + 1).substring(message.content.substring(message.content.search(' ') + 1).search(' ') + 1);
