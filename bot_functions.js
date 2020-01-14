@@ -182,7 +182,7 @@ async function createVote(message, client) {
         message.channel.send(`Vote Created *React to the vote message with the vote reactions you have 1 minute. if a reaction doesn't work react again*`);
         message.mentions.channels.first().send(static_embed.Vote(message.author, vote))
           .then(gmessage => {
-          gmessage.awaitReactions(reaction_event, {time: 10000}).then(collected => {
+          gmessage.awaitReactions(reaction_event, {time: 60000}).then(collected => {
             const reactions = collected.array();
             for (let i = 0; i < collected.size; i++) {
               reactions[i].remove(message.member);
