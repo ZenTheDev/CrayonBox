@@ -179,7 +179,7 @@ async function createVote(message, client) {
     if (message.mentions.channels.size !== 0) {
       if ((message.content.substring(message.content.search(' ') + 1).search(' ') + 1) !== 0) {
         const vote = message.content.substring(message.content.search(' ') + 1).substring(message.content.substring(message.content.search(' ') + 1).search(' ') + 1);
-        message.channel.send(`Vote Created *React to the vote message with the vote reactions you have 1 minute. if a reaction doesn't work react again*`);
+        message.channel.send(`**Vote Created**\n*React to the vote message with the vote reactions, you have 1 minute. If a reaction doesn't work, react again*`);
         message.mentions.channels.first().send(static_embed.Vote(message.author, vote))
           .then(gmessage => {
           gmessage.awaitReactions(reaction_event, {time: 60000}).then(collected => {
@@ -196,7 +196,7 @@ async function createVote(message, client) {
       message.channel.send(`${errorEmoji.toString()} **Invalid/no channel**\nYes, that\'s a cool Vote you got there, but where am I supposed to create the Vote? I think you forgot to mention the channel...`);
     }
   } else {
-    message.channel.send(`${errorEmoji.toString()} Sorry to say but uh, you need administrator permissions on this server to make Votes.`)   
+    message.channel.send(`${errorEmoji.toString()} **Permissions required**\nSorry to say but uh, you need administrator permissions on this server to make Votes.`)   
   }
 }
 
@@ -285,6 +285,6 @@ async function giveaway_drop(message, client) {
          message.channel.send(`${errorEmoji.toString()} **Invalid/no channel**\nYes, that\'s a cool drop you got there, but where am I supposed to drop? I think you forgot to mention the channel...`);
         }
     } else {
-        message.channel.send(`${errorEmoji.toString()} Sorry to say but uh, you need administrator permissions on this server to make drops.`)   
+        message.channel.send(`${errorEmoji.toString()} **Permissions required**\nSorry to say but uh, you need administrator permissions on this server to make drops.`)   
     }
 }
