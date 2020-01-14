@@ -24,7 +24,8 @@ const jsonActions = {
     1: bot_functions.acceptTrialMod,
     2: bot_functions.feature,
     3: bot_functions.giveaway_drop,
-    4: bot_functions.export_channel
+    4: bot_functions.export_channel,
+  5: bot_functions.createVote
 };
 const modules = {
     1: bot_modules.one_letter,
@@ -40,7 +41,6 @@ function sleep(milliseconds) {
 client.once('ready', async () => {
     console.log('crayonbox-assist has started up successfully.');
   client.user.setActivity('DM for modmail', { type: 'PLAYING' });
-
     /*while (1 === 1) {
         //dev();
         await sleep(10000);
