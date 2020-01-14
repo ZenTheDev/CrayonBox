@@ -12,7 +12,8 @@ module.exports = {
     acceptTrialMod,
     giveaway_drop,
     export_channel,
-    feature
+    feature,
+    createVote
 };
 
 async function acceptTrialMod(message, client) {
@@ -161,15 +162,49 @@ async function is_higher_then_me(message, client) {
     return true;
   } else {
     return false;
-    
+  }
+}
+
+async function createVote(message, client) {
+  const errorEmoji = client.emojis.get("665989257197912115");
+  
+  const reaction_event = (reaction, user) => {
+    if (user.id === message.member.id) {
+      reaction.message.react(reaction.emoji.identifier);
+    }
+    return user.id === message.member.id;
+  };
+  
+  if (message.member.permissions.has('ADMINISTRATOR') == true || is_higher_then_me(message, client)) {
+    if (message.mentions.channels.size !== 0) {
+      if ((message.content.substring(message.content.search(' ') + 1).search(' ') + 1) !== 0) {
+        const vote = message.content.substring(message.content.search(' ') + 1).substring(message.content.substring(message.content.search(' ') + 1).search(' ') + 1);
+        message.channel.send(`Vote Created *React to the vote message with the vote reactions you have 1 minute. if a reaction doesn't work react again*`);
+        message.mentions.channels.first().send(static_embed.Vote(message.author, vote))
+          .then(gmessage => {
+          gmessage.awaitReactions(reaction_event, {time: 10000}).then(collected => {
+            const reactions = collected.array();
+            for (let i = 0; i < collected.size; i++) {
+              reactions[i].remove(message.member);
+            }
+          });
+        });
+      } else {
+        message.channel.send(`No Vote defined`);
+      }
+    } else {
+      message.channel.send(`${errorEmoji.toString()} **Invalid/no channel**\nYes, that\'s a cool Vote you got there, but where am I supposed to create the Vote? I think you forgot to mention the channel...`);
+    }
+  } else {
+    message.channel.send(`${errorEmoji.toString()} Sorry to say but uh, you need administrator permissions on this server to make Votes.`)   
   }
 }
 
 
+
 // accept
 async function dev(message, client) {
-  giveaway_drop(message, client);
-    //is_higher_then_me(message, client);
+  createVote(message, client);
 }
 
 async function save_delete(message) {
@@ -213,7 +248,6 @@ async function giveaway_drop(message, client) {
     const filter = (reaction, user) => {
         return ["665990890438918174"].includes(reaction.emoji.id) && user.bot === false;
     };
-
     if (message.member.permissions.has('ADMINISTRATOR') == true || is_higher_then_me(message, client)) {
         if (message.mentions.channels.size !== 0) {
             if ((message.content.substring(message.content.search(' ') + 1).search(' ') + 1) !== 0) {

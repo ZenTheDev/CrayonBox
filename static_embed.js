@@ -22,7 +22,9 @@ module.exports = {
 
     GiveawayDrop,
     GiveawayWinner,
-    GiveawayInvalid
+    GiveawayInvalid,
+  
+    Vote
 };
 
 
@@ -178,6 +180,16 @@ function GiveawayInvalid(prize, dropped_by) {
         .addField("Winner", 'This prize is no longer valid.', false)
         .addField("How to win?", `Be the first who reacts with <a:dropreact:665990890438918174>`, false)
         .setAuthor(dropped_by.username + "#" + dropped_by.discriminator, dropped_by.avatarURL)
+        .setTimestamp()
+        .setFooter(`Made by Gravity Assist#0852`);
+}
+
+function Vote(opend_by, vote_content) {
+    return new Discord.RichEmbed()
+        .setColor(WelcomeMessageColor)
+        .setTitle('Vote')
+        .addField("Question", vote_content, false)
+        .setAuthor(opend_by.username + "#" + opend_by.discriminator, opend_by.avatarURL)
         .setTimestamp()
         .setFooter(`Made by Gravity Assist#0852`);
 }

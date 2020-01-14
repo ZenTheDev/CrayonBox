@@ -18,6 +18,10 @@
       "export": {
         "action": 4,
         "ignoredchannels": []
+      },
+      "vote": {
+        "action": 5,
+        "ignoredchannels": []
       }
     }
   },
@@ -39,6 +43,10 @@
       },
       "export": {
         "action": 4,
+        "ignoredchannels": []
+      },
+      "vote": {
+        "action": 5,
         "ignoredchannels": []
       }
     }
@@ -84,6 +92,10 @@
       "export": {
         "action": 4,
         "ignoredchannels": []
+      },
+      "vote": {
+        "action": 5,
+        "ignoredchannels": []
       }
     }
   },
@@ -113,6 +125,10 @@
       },
       "export": {
         "action": 4,
+        "ignoredchannels": []
+      },
+      "vote": {
+        "action": 5,
         "ignoredchannels": []
       }
     },
@@ -184,6 +200,10 @@
       },
       "export": {
         "action": 4,
+        "ignoredchannels": []
+      },
+      "vote": {
+        "action": 5,
         "ignoredchannels": []
       }
     }
