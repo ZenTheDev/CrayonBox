@@ -40,7 +40,7 @@ function sleep(milliseconds) {
 
 client.once('ready', async () => {
     console.log('crayonbox-assist has started up successfully.');
-  client.user.setActivity('DM for modmail', { type: 'PLAYING' });
+  client.user.setActivity('with the crayons', { type: 'PLAYING' });
     /*while (1 === 1) {
         //dev();
         await sleep(10000);
