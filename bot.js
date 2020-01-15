@@ -184,7 +184,7 @@ client.on('message', (message) => {
                 } 
             } else if (message.guild.id == "664918431040012328" && content.toLowerCase().includes("nigger")) {
                 message.delete();
-                channel.send("You aren't allowed to say the n word, sorry man")
+                channel.send(`<@!${message.author.id}> You aren't allowed to say the n word, sorry man`)
                     .then(newMessage => newMessage.delete(2000));
             }
         }
