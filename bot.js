@@ -177,7 +177,7 @@ client.on('message', (message) => {
                 }
                 if (hasUpperCase(content) == true) {
                     message.delete()
-                    message.send("No uppercase")
+                    channel.send("No ^case")
                 }
             }
         }
