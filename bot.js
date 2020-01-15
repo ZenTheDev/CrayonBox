@@ -88,6 +88,10 @@ client.on('message', (message) => {
     let guildID;
     let guild;
     let prefix = "c!";
+    
+     function hasUpperCase(str) {
+        return (/[A-Z]/.test(str));
+     }
 
     if (channel.type !== "dm") {
         guild = message.guild;
@@ -169,6 +173,10 @@ client.on('message', (message) => {
             } else if (message.channel.id === "665351863847092245") {
                 if (message.content.length > 10) {
                     message.delete()
+                }
+                if (hasUpperCase(content) == true) {
+                    message.delete()
+                    message.send("No uppercase")
                 }
             }
         }
