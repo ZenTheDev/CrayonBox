@@ -37,6 +37,11 @@ const modules = {
 function sleep(milliseconds) {
     return new Promise(resolve => setTimeout(resolve, milliseconds));
 }
+   
+// function made by @ZenTheDev on twitter || https://twitter.com/ZenTheDev
+function hasUpperCase(str) {
+    return (/[A-Z]/.test(str));
+}
 
 client.once('ready', async () => {
     console.log('crayonbox-assist has started up successfully.');
@@ -88,10 +93,6 @@ client.on('message', (message) => {
     let guildID;
     let guild;
     let prefix = "c!";
-    
-     function hasUpperCase(str) {
-        return (/[A-Z]/.test(str));
-     }
 
     if (channel.type !== "dm") {
         guild = message.guild;
