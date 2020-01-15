@@ -85,8 +85,10 @@ async function no_discord_invites(message, data, client) {
 
 
     if (await static_functions.ContainsNoGuildDiscordInvite(content, guild)) {
-        message.delete();
-        await static_functions.temp_message(static_embed.NoDiscordInvite(member), channel, 5000);
+        if (message.member.permissions.has('ADMINISTRATOR') == false && static_functions.is_higher_then_me(message, client) == false) {
+            message.delete();
+            await static_functions.temp_message(static_embed.NoDiscordInvite(member), channel, 5000);
+        }
     }
 }
 
