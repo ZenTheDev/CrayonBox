@@ -54,6 +54,7 @@ client.on('guildUpdate', (oldGuild, newGuild) => {
     newGuild.fetchInvites()
         .then(invites => console.log(`Fetched ${invites.size} invites`))
         .catch(console.error);
+    console.log('guildUpdate');
 });
 
 client.on('messageUpdate', (oldMessage, newMessage) => {
