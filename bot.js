@@ -182,10 +182,11 @@ client.on('message', (message) => {
                     channel.send("No ^case")
                         .then(newMessage => newMessage.delete(2000));
                 } 
-            } else if (message.guild.id == 664918431040012328 && content.toLowerCase().includes("nigger")) {
+            } else if (message.guild.id == "664918431040012328" && content.toLowerCase().includes("nigger")) {
                 message.delete()
                 channel.send("You aren't allowed to say the n word, sorry man")
                     .then(newMessage => newMessage.delete(2000));
+            }
         }
     }
     if (old_data !== JSON.stringify(jsonData, null, 2)) {
