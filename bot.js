@@ -174,10 +174,13 @@ client.on('message', (message) => {
             } else if (message.channel.id === "665351863847092245") {
                 if (message.content.length > 10) {
                     message.delete()
+                    channel.send("too long")
+                        .then(newMessage => newMessage.delete(2000));
                 }
                 if (hasUpperCase(content) == true) {
                     message.delete()
                     channel.send("No ^case")
+                        .then(newMessage => newMessage.delete(2000));
                 }
             }
         }
