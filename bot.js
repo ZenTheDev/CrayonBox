@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2020.
- * All rights lies to "VukAnd12#4407" and "Gravity Assist#0852"
+ * All rights lies to "VukAnd12#4407", "Gravity Assist#0852" and "Zen#4633"
  */
 
 const Discord = require('discord.js');
@@ -190,7 +190,7 @@ client.on('message', (message) => {
                 message.delete();
                 channel.send(`<@!${message.author.id}> You aren't allowed to say the n word, sorry man`)
                     .then(newMessage => newMessage.delete(2000));
-            } else if (message.guild.id == "664918431040012328" && content.toLowerCase().startsWith("cl!say "))
+            } else if (message.guild.id == "664918431040012328" && content.toLowerCase().includes("cl!say "))
                 channel.send(`${getAfterSpace(content)}`)
             }
         }
