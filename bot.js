@@ -190,7 +190,7 @@ client.on('message', (message) => {
                 message.delete();
                 channel.send(`<@!${message.author.id}> You aren't allowed to say the n word, sorry man`)
                     .then(newMessage => newMessage.delete(2000));
-            } else if (message.guild.id == "664918431040012328" && content.toLowerCase().startsWith("cb!say "))
+            } else if (message.guild.id == "664918431040012328" && content.toLowerCase().startsWith("cl!say "))
                 channel.send(`${content.getAfterSpace()}`)
             }
         }
