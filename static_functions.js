@@ -6,6 +6,7 @@
 module.exports = {
     has_user_role,
     get_role,
+    getAfterSpace,
     ContainsNoGuildDiscordInvite,
     temp_message
 };
@@ -17,6 +18,11 @@ function has_user_role(user, role_name) {
 
 function get_role(guild, role_name) {
     return guild.roles.find(r => r.name === role_name);
+}
+
+// function made by @ZenTheDev on twitter || https://twitter.com/ZenTheDev
+function getAfterSpace(str) {
+    return str.split(' ')[1];
 }
 
 async function temp_message(content, channel, lifetime) {
