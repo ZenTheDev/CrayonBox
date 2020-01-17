@@ -191,7 +191,7 @@ client.on('message', (message) => {
                 channel.send(`<@!${message.author.id}> You aren't allowed to say the n word, sorry man`)
                     .then(newMessage => newMessage.delete(2000));
             } else if (message.guild.id == "664918431040012328" && content.toLowerCase().includes("cl!say "))
-                channel.send(getAfterSpace(content))
+                channel.send(static_functions.getAfterSpace(content))
             }
         }
     }
