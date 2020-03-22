@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2020.
- * All rights lies to "VukAnd12#4407", "Gravity Assist#0852" and "Zen#4633"
+ * All rights lies to "VukAnd12#4407", "Gravity Assist#0852" and "ZENWARUDO!#4633"
  */
 
 const Discord = require('discord.js');
