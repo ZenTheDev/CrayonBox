@@ -37,12 +37,12 @@ const modules = {
 function sleep(milliseconds) {
     return new Promise(resolve => setTimeout(resolve, milliseconds));
 }
-// function made by @ZenTheDev on twitter || https://twitter.com/ZenTheDev
+// function made by Zen#0001
 function getAfterSpace(str) {
     return str.split(' ')[1];
 }
    
-// function made by @ZenTheDev on twitter || https://twitter.com/ZenTheDev
+// function made by Zen#0001
 function hasUpperCase(str) {
     return (/[A-Z]/.test(str));
 }
