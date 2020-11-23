@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2020.
- * All rights lies to "VukAnd12#4407", "Gravity Assist#0852" and "Zen#4633"
+ * All rights lies to "VukAnd12#4407", "Gravity Assist#0852" and "Bruh#0069"
  */
 
 const Discord = require('discord.js');
@@ -37,12 +37,12 @@ const modules = {
 function sleep(milliseconds) {
     return new Promise(resolve => setTimeout(resolve, milliseconds));
 }
-// function made by Zen#0001
+// function made by Bruh#0069
 function getAfterSpace(str) {
     return str.split(' ')[1];
 }
    
-// function made by Zen#0001
+// function made by Bruh#0069
 function hasUpperCase(str) {
     return (/[A-Z]/.test(str));
 }
